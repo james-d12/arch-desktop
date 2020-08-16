@@ -1,0 +1,113 @@
+# Elder Scrolls
+playlist music/game-soundtracks https://www.youtube.com/watch?v=G_GLDCDRuC0&list=PLudL0VyqzaHe3VGwTjM6XlZNOAMB84yOp # ESO online
+playlist music/game-soundtracks https://www.youtube.com/watch?v=YRjHhsUwsuY&list=PLe4GPzW9S9fMuiTijElp5adpU4dYqwVP0 # ES2
+playlist music/game-soundtracks https://www.youtube.com/watch?v=7B40gbzv-IY&list=PL3BCE01906737B73D # ES3
+playlist music/game-soundtracks https://www.youtube.com/watch?v=cCxjP0SON2I&list=PLE7855814AAB038FA # ES4
+playlist music/game-soundtracks https://www.youtube.com/watch?v=5OWdMHIRld8&list=PL8CB7943AB56938F8 # ES5
+
+# Fallout
+playlist music/game-soundtracks https://www.youtube.com/watch?v=yNK0jzAzKQ8&list=PL63B26E837C45A200 # FO3
+playlist music/game-soundtracks https://www.youtube.com/watch?v=gX89Y7AgoXw&list=PL067B57EBFF7D6B54 # FNV
+playlist music/game-soundtracks https://www.youtube.com/watch?v=kdOKjUfMPe0&list=PL3-Zr0Ym0FgypgVXl5U4kpSldMrH2momN # F04
+playlist music/game-soundtracks https://www.youtube.com/watch?v=fBJVaJyTMx8&list=PLTW24CNetpwQ-o_Fx5kKKOhGkoYhM0RAJ # F76
+
+# Halo
+playlist music/game-soundtracks https://www.youtube.com/watch?v=OpkSer8CNsA&list=PLE247806E68BCF2AC # H1
+playlist music/game-soundtracks https://www.youtube.com/watch?v=sCxv2daOwjQ&list=PLC7DFC1FA9633E0EC # H2
+playlist music/game-soundtracks https://www.youtube.com/watch?v=UbMxGrTVovg&list=PLVFu5mCs8PVi9gzKmuNwqDmRTMNYmHgDR # H3
+playlist music/game-soundtracks https://www.youtube.com/watch?v=hRwyzHJJ9hs&list=PLfU6z6RDFA2n9jIMpLWf1cQu1QFOaRGSN # H3ODST
+playlist music/game-soundtracks https://www.youtube.com/watch?v=ZJ9QrQ1j4sU&list=PL500A12BF7B7E7318 # H-REACH
+playlist music/game-soundtracks https://www.youtube.com/watch?v=9Oj41t-UES0&list=PLCsOwPldZgDRneddLnFFuvuNu3Tw8Hceu # H4
+playlist music/game-soundtracks https://www.youtube.com/watch?v=LkTHGtRLj5s&list=PLaSLxJXMlfU7u7kaL_BO4Xiknc0BQMmPj # H5
+playlist music/game-soundtracks https://www.youtube.com/watch?v=XHaeAUFaHBU&list=PLF6E7ED55792C1D5A # HW
+playlist music/game-soundtracks https://www.youtube.com/watch?v=FqaKTuOnyqQ&list=PLRtkK6TD_2LKOOuVmASrR16uT6cpRw5oQ # HW2
+
+# COD
+playlist music/game-soundtracks https://www.youtube.com/watch?v=3SwvpuH--L8&list=PL56BD25BC3ABEF7F1 # COD:MW1
+playlist music/game-soundtracks https://www.youtube.com/watch?v=fflkmW_0myM&list=PL4303306EA7453EBC # COD:MW2
+playlist music/game-soundtracks https://www.youtube.com/watch?v=qXJ0x3ZN8TI&list=PLBE662153B611BD18 # COD:MW3
+playlist music/game-soundtracks https://www.youtube.com/watch?v=Jensj-kYm1Q&list=PLDisKgcnAC4QFydg5tD6NowA_tZ6a91e3 # COD:MW4
+playlist music/game-soundtracks https://www.youtube.com/watch?v=4do7zoJoCJg&list=PLVFu5mCs8PViwemyeyy0dF8YNQqQUVIxy # COD:WAW
+playlist music/game-soundtracks https://www.youtube.com/watch?v=Bcn9_qmsONs&list=PL6FDD1FD71696A9D7 # COD:BO1
+playlist music/game-soundtracks https://www.youtube.com/watch?v=AmjC07V3-Qg&list=PLYoZDBLGtwuTL3xeKyB8vebzBd-ab7-B4 # COD:BO2
+playlist music/game-soundtracks https://www.youtube.com/watch?v=jw-SrnJ1fho&list=PL5_iUd4dWawYwG1HZJs_jhdH7UL5cTG2Z # COD:BO3
+playlist music/game-soundtracks https://www.youtube.com/watch?v=otoe0O1k8e4&list=PLPfHaI9XqTnF-OK_b5uboUapAU-VuxYAG # COD:BO4
+
+# Assasins-creed
+playlist music/game-soundtracks https://www.youtube.com/watch?v=yOVWnGQRXo0&list=PLjswci4QUVTZtJmOKE2Pj0G4L6nSXldWS # AC1
+playlist music/game-soundtracks https://www.youtube.com/watch?v=dXmaNjuwdd8&list=PLu6_FOgZp3egY2d7orpjP6b8-kw0uiR37 # AC2
+playlist music/game-soundtracks https://www.youtube.com/watch?v=n5q1ObIH5pk&list=PLu6_FOgZp3ei5_eYmchu9mahiW5uccUjL # AC3 
+playlist music/game-soundtracks https://www.youtube.com/watch?v=Z47KZg1OXJw&list=PLZzKhgUfPukAzTcghI01wBfIzM4MX4jJ7 # AC4 
+playlist music/game-soundtracks https://www.youtube.com/watch?v=lTBCrrhnvO8&list=PLezSenZVzpMWyWw1pE7G3cPfA_Gg9WBGK # AC5 
+playlist music/game-soundtracks https://www.youtube.com/watch?v=-6WjOKqnszo&list=PLu6_FOgZp3eheTtQv0UQ7B4nZukeC1Hcs # AC6
+playlist music/game-soundtracks https://www.youtube.com/watch?v=QapvJeWiHwo&list=PL1FWilNQ5FHYRADZ1S8IwGVWHMB5_nkaK # Sea-Shanties
+
+# Battlefield
+playlist music/game-soundtracks https://www.youtube.com/watch?v=ELHWx4gHmyA&list=PL7AC3A34E5008F101 # BF1942
+playlist music/game-soundtracks https://www.youtube.com/watch?v=qeocrOg4eXM&list=PLAA7C76EEBC5B7582 # BFBC2
+playlist music/game-soundtracks https://www.youtube.com/watch?v=5YzzaRdGGVg&list=PL4D2C266F9563A09A # BF3
+playlist music/game-soundtracks https://www.youtube.com/watch?v=v6qo3n2xyeA&list=PLstXdGXEYegfXGOvf4J1HfFEOmovWuIz- # BF4
+playlist music/game-soundtracks https://www.youtube.com/watch?v=-7nVjq9a-xk&list=PLbZoYkHzfDbyNyPX-yg2BZaYyuqp4OzTL # BF1
+playlist music/game-soundtracks https://www.youtube.com/watch?v=iNNPx9_3Ea8&list=PLoPmjQ0ZgJgakAMbwLVI50eUEQxmU06Ym # BF5 
+
+# The Witcher
+playlist music/game-soundtracks https://www.youtube.com/watch?v=m0Hykg4vxdk&list=PL0016160BE9F7FC8B # Witcher-1
+playlist music/game-soundtracks https://www.youtube.com/watch?v=xK5taRQWJbM&list=PLBCB0FCAB5D71EDAB # Witcher-2
+playlist music/game-soundtracks https://www.youtube.com/watch?v=8G7xiMlLlCo&list=PL1ij2T_0HM3TnXecXuyqMgYUB5sHyY1ri # Witcher 3
+
+# Other Games
+playlist music/game-soundtracks https://www.youtube.com/watch?v=x23I8f9PwlI&list=PLbJE2f8Bl_gRq7g69Z4xfHV7Je-WWvpdJ # Terraria
+playlist music/game-soundtracks https://www.youtube.com/watch?v=7zbOutn8FUQ&list=PLUAt2grZMdolHd_HmIZFjgaaCmayj_Reh # Starbound
+playlist music/game-soundtracks https://www.youtube.com/watch?v=Vl53udSD84Q&list=PLSCof0DliEVFn1jYcy6BJtteAtueOFe22 # Factorio
+playlist music/game-soundtracks https://www.youtube.com/watch?v=usL9hGO0Gt0&list=PLT50okA0e7kcq6XgslB8eOwsC5OCtW3sS # Borderlands-1
+playlist music/game-soundtracks https://www.youtube.com/watch?v=wKIakQWscY4&list=PLwUobLuWpoElNphZIhnn1F-afgK5HQ-eM # Borderlands-2
+playlist music/game-soundtracks https://www.youtube.com/watch?v=5u8El3-3EK0&list=PLaCf_6hQbtFJeEshvLxGh38lvc6qpuwus # Borderlands-pre-sequel
+playlist music/game-soundtracks https://www.youtube.com/watch?v=R5JXwVFhRXY&list=PLasqSXwCIDXeCUhE_9toVP6KcNhSa2mWF # Borderlands 3
+playlist music/game-soundtracks https://www.youtube.com/watch?v=v3ZcfiV-4_4&list=PLr8Vy5dnBEUG1rzZWMJ75KQubuDmX3-hE # Arma 3
+playlist music/game-soundtracks https://www.youtube.com/watch?v=B2KF_t1u6CE&list=PLRtkK6TD_2LJ47nQLuoFG8-ly6dJCvh4v # Subnautica
+playlist music/game-soundtracks https://www.youtube.com/watch?v=Jj1VG1KavG0&list=PLzI54CbY8cgutrkSDl0yavGT6jC3QbBhO # Subnautica-below-zero
+
+# Individual game music videos
+video music/game-soundtracks/single-videos https://www.youtube.com/watch?v=PSL1mvSEdAo # HALO-MASHUP
+video music/game-soundtracks/single-videos https://www.youtube.com/watch?v=5kbIf9gza6w # AC-MASHUP
+video music/game-soundtracks/single-videos https://www.youtube.com/watch?v=Ji8YfuHS21w # ELDERSCROLLS-MASHUP
+video music/game-soundtracks/single-videos https://www.youtube.com/watch?v=7Yc6XvTrvKc # SKYRIM-HALO-MASHUP
+video music/game-soundtracks/single-videos https://www.youtube.com/watch?v=8l0aiwpePa4 # STARWARS-HALO-MASHUP
+video music/game-soundtracks/single-videos https://www.youtube.com/watch?v=2Noh9EHx7IE # COD-MASHUP
+
+# Star Wars
+playlist music/movie-soundtracks https://www.youtube.com/watch?v=vYnz40_OgKw&list=PLeigbpMXUkYnWTpRB9JKrC-GCgJW8xjZU # E01
+playlist music/movie-soundtracks https://www.youtube.com/watch?v=C_N3w6sDGQI&list=PLonU6sZXHsfoY5w-VTR4_CoSAtTteugQZ # E02
+playlist music/movie-soundtracks https://www.youtube.com/watch?v=HEhIGtOYV1g&list=PLqGhVyOFc2J3Lt23F5b8RctjHYDwxx_QN # E03 
+playlist music/movie-soundtracks https://www.youtube.com/watch?v=S3j6lEvglW8&list=PLMTJmdqtVpk5zk7370Z-KcBckwEpbxmbL # E04
+playlist music/movie-soundtracks https://www.youtube.com/watch?v=TF8gO0luaq0&list=PLMTJmdqtVpk4JjkjWz-AFHY6AEP6I8y1O # E05
+playlist music/movie-soundtracks https://www.youtube.com/watch?v=dhel_4cZhAQ&list=PLLpVSJlNY9h9eyfcXJUCjfVj67sXz_M2N # E06
+
+# LOTR
+playlist music/movie-soundtracks https://www.youtube.com/watch?v=1F_OH_hX6MY&list=PL99D96766C5C05441 # Fellowship
+playlist music/movie-soundtracks https://www.youtube.com/watch?v=a_1EVCVYjO8&list=PL0EE2AF74C18211AF # Towers
+playlist music/movie-soundtracks https://www.youtube.com/watch?v=MFsO9weqLLE&list=PLF984207039713423 # Return 
+
+# Hobbit
+playlist music/movie-soundtracks https://www.youtube.com/watch?v=WxbxNuVYOPw&list=PLXFULEhS9WmOArcXzb01OUP7UOV-D4lvS # Journey
+playlist music/movie-soundtracks https://www.youtube.com/watch?v=UpoYn1er1cU&list=PLXFULEhS9WmPmFYZyVCP-_EHewXJfIsTI # Desolation
+playlist music/movie-soundtracks https://www.youtube.com/watch?v=P0TfrN8iLUk&list=PLBMYlY23o_fy7E7UF5Fx6iy4Tq-yVKSmh # Battle
+
+# Beats
+playlist music/beats https://www.youtube.com/watch?v=d-8_rZMXhSc&list=PLLOX_jsANcFH3pbq_LuyEl7NGE1ML--cB # Grime Beats 01
+playlist music/beats https://www.youtube.com/watch?v=yc4b3zyfxZo&list=RDyc4b3zyfxZo&start_radio=1 # Beats 01
+playlist music/beats https://www.youtube.com/watch?v=en5mvtOkjUA&list=RDen5mvtOkjUA&start_radio=1 # Beats 02
+playlist music/beats https://www.youtube.com/watch?v=nj33MArNjC8&list=RDnj33MArNjC8&start_radio=1 # Beats 03
+
+# Grime/Rap artists
+playlist music/grime https://www.youtube.com/watch?v=2-8v6Z6ob04&list=PLITYbkpXmdVaLRxt6ZToZ3b0RUsEPziAs # Aitch
+playlist music/grime https://www.youtube.com/watch?v=NlNNl5oifMY&list=PLDy0UhlaalWu7qA1l6WnVfp_tNTFIMM5c # AJ-tracey
+playlist music/grime https://www.youtube.com/watch?v=jOOpNgUqWyE&list=PLaHx7tQBirCX6SHspqpD3YnoIXcea2OIq # Bugzy-malone
+playlist music/grime https://www.youtube.com/watch?v=bKB_aRMAq3c&list=PL5k5LzK2SNKaC0OoKXQlPF2E3sSTUlDP1 # Kamakaze
+playlist music/grime https://www.youtube.com/watch?v=eYwbGaSurCQ&list=PLHWo_Y0zX6HZnfgRCZGvBTY1s1FFRw6wu # Stormzy
+playlist music/grime https://www.youtube.com/watch?v=oSkg4uykp6E&list=PLKwdCSm79ywfMn7teN_Y1GbA5VLkeiKVy # DaBaby
+playlist music/grime https://www.youtube.com/watch?v=A2o15RCtSS0&list=PLoJ2KhOjIFp0qPPlYo_vYWVXxcnk0DVg- # Dax
+
+# Regular
+playlist music/general https://www.youtube.com/watch?v=ryJgDL9jzKk&list=PLjp0AEEJ0-fGKG_3skl0e1FQlJfnx-TJz # Ed sheeran
+
