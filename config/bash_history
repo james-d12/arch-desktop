@@ -1,0 +1,500 @@
+make MakeFile clean
+mv MakeFile makefile
+ls
+make clean
+ls
+make compile
+ls
+cd bin
+ls
+ls
+cd ..
+ls
+make check
+ls
+cd logs
+ls
+cat clang-tidy-log.txt 
+cd ..
+ls
+make check
+ls
+ls
+make
+ls
+rm -rf bin logs
+ls
+ls -la
+sudo pacman -S libreoffice-fresh
+sudo pacman -S libreoffice-still
+sudo pacman -S libreoffice-fresh
+neofetch
+clear
+make tests
+make hep
+make help
+make help
+make --help
+make --help
+clear
+make help
+make help
+make help
+make help
+make compile
+ls
+rm -rf bin
+make compile-gcc
+make compile-gcc
+ls
+make compile-gcc
+make compile-gcc
+make compile-gcc
+make compile-gcc
+ls
+rm -rf bin
+ls
+make compile-gcc
+make compile-gcc
+rm -rf bin
+make compile-gcc
+make compile-gcc
+make clean
+make compile-gcc
+make clean
+make compile-gcc
+make compile-gcc
+make clean
+make check
+make check
+ping google.com
+ping google.com
+make check
+clear
+make check
+make clean
+ls
+ls
+make clean
+make clean
+make clean
+make clean
+make compile
+ls
+make clean
+make check
+ls bin/
+make clean
+make check
+clear
+ls
+ls -la
+make compile
+ls
+ls bin/
+make compile VERBOSE
+cd ..
+ls
+cd include
+code .
+cd ..
+ls
+rm -rf include
+ls
+cd atom
+code .
+ls
+cd Documents/c++/atom
+ls
+make compile
+make tests
+exit
+pip install sphinx
+exit
+nano .bashrc
+exit
+ls
+cd Documents
+ls
+cd c++
+ls
+cp atom atom-bak
+cp -r atom atom-bak
+ls
+ls atom-bak
+cd atom
+mkdir sphinx-docs
+cd sphinx-docs
+sphinx-quickstart
+sphinx
+sphinx-quickstart
+pip install breathe
+exit
+pip install numpy
+pip remove breathe
+pip --help
+pip uninstall breathe
+pip install breathe
+exit
+sudo pacman -Syu
+yay -Syu
+yay -Rcns unity-editor
+yay -Rcns unity-editor
+sudo pacman -S npm
+npm install typescript
+lks
+ls
+rm -rf node_modules/
+ls
+ls
+rm -rf package-lock.json 
+ls
+cd Downloads
+ls
+npm install typescript
+yay -S unity-editor-lts
+cd ~/Documents/c++/atom
+ls
+cd sphinx-docs/
+ls
+breathe-quickstart
+sphinx-quickstart
+ls
+sudo pacman -Syu
+exit
+sudo pcaman -S evince
+sudo pacman -S evince
+make dev-test
+pip install docutils
+pip install doxygen
+cd Downloads
+git clone https://github.com/doxygen/doxygen.git
+mkdir build
+cd build
+cmake -G "Unix Makefiles" ..
+ls
+cd ..
+ls
+ls
+rm -rf buold
+cd doxygen/
+ls
+mkdir buold
+mkdir build
+rmdir buold
+cd build
+cmake -G "Unix Makefiles" ..
+cd ..
+ls
+cd build
+ls
+make
+ls
+ls bin
+ls bin/doxygen 
+cd bin
+ls
+cd doxygen 
+ls
+cd ..
+ls
+make install
+sudo make install
+doxygen
+ls
+cd ..
+ls
+cd ..
+ls
+rm -rf doxygen build
+ls
+rm -rf *.zip
+ls
+cd ~/Documents/c++/atom
+ls
+rm -rf sphinx-docs/
+cd ..
+ls
+cd atom
+cd ..
+cd atom-bak
+ls
+mkdir doxygen-docs
+cd doxygen-docs/
+ls
+doxygen -g 
+ls
+nano Doxyfile 
+nano Doxyfile 
+doxygen
+ls
+rm -rf *
+ls
+cd ..
+ls
+rm -rf doxygen-docs/
+ls
+cd include
+ls
+cd ..
+ls
+doxygen -g 
+nano doxy
+ls
+nano Doxyfile 
+doxygen
+ls
+cd doxygen-docs/
+ls
+cd html
+ls
+firefox index.html
+cd sera
+cd search/
+ls
+cd ..
+ls
+cd ..
+ls
+cd ..
+ls
+nano Doxyfile
+doxygen
+code .
+doxygen
+nano Doxyfile 
+doxygen
+ls
+rm -rf doxygen-docs/
+doxygen
+ls
+exit
+exit
+cd /usr/lib/firefox/browser
+ls
+cd features
+ls
+cd ..
+ls
+cd ..
+ls
+rm -rf crash-reporter
+ls
+rm -rf minidump-analyzer 
+sudo rm -rf minidump-analyzer 
+ls
+rm -rf pingsender 
+sudo rm -rf pingsender 
+exit
+TZ=UTC firefox
+sudo pacman -S openvpn dialog python-pip python-setuptools
+protonvpn init
+sudo pip3 install protonvpn-cli
+protonvpn init
+sudo protonvpn init
+protonvpn c -f
+sudo protonvpn c -f
+sudo protonvpn status
+
+sudo protonvpn status
+sudo protonvpn d
+sudo protonvpn status
+sudo protonvpn configure
+sudo protonvpn configure
+sudo protonvpn configure
+sudo protonvpn configure
+sudo protonvpn configure
+clear
+sudo protonvpn c -f
+sudo protonvpn status
+exit
+TZ=UTC firefox
+whereis firefox
+cd /usr/bin/firefox
+ls
+cd /usr/bin
+ls
+nano firefox
+sudo cp firefox firefox.bak
+sudo nano firefox
+exit
+exit
+sudo pacman -Syu
+sysctl vm.swappiness
+sudo nano /etc/sysctl.d/99-swappiness.conf
+sudo nano /etc/sysctl.d/99-swappiness.conf
+sysctl vm.swappiness
+exit
+id -u
+cd /run/user
+ls
+cd 100
+cd 1000
+ls
+exit
+neofetch
+neofetch
+clear
+exit
+pacmd
+pacmd list-modules
+pacmd list-modules | grep name: <module
+pacmd list-modules
+pacmd list-modules | grep echo-cancel
+sudo pacman -S firejail
+sudo apparmor_parser -r /etc/apparmor.d/firejail-default
+firejail
+exit
+sudo apparmor_parser -r /etc/apparmor.d/firejail-default
+ls /etc/
+ls /etc/ | grep apparmor
+firejail --help
+firejail --help | grep rlimit
+firejail firefox --rlimit-as=1024
+sud oaa-enforce firejail-default
+sudo aa-enforce firejail-default
+ls /etc/apparmor.d/local
+sudo pacman -S firetools
+firetools
+sudo pacman -Rcns firetools
+clear
+firejail --help
+firejail --list
+firecfg
+sudo firecfg
+sudo apparmor_parser -r /etc/apparmor.d/firejail-default
+whereis firejail
+whereis firejail-default
+find / firejail-default
+find / -type d firejail-default
+find / -type d -name firejail-default
+sudo find / -type d -name firejail-default
+exit
+ping google.com
+ping google.com
+exit
+sudo protonvpn d 
+ping google.com
+exit
+sudo protonvpn c -f 
+exit
+cd /home/james/.mozilla/firefox/8uv7jfu3.private
+ls
+cd /home/james/.cache/mozilla/firefox/8uv7jfu3.private
+ls
+cd /home/james/.mozilla/firefox/8uv7jfu3.private
+ls
+cd extension
+ls -la
+ls a
+ls -a
+cd bookmarkbackups/
+ls
+cd ..
+ls
+cd extension
+cd extensions
+ls
+cd ..
+l
+nano prefs.js
+cd ..
+ls
+cd private-profile/
+ls
+cd ..
+ls
+cd *.private
+ls
+cd ..
+ls
+cd ~/Documents/c++/atom
+ls
+cd ..
+ls
+cd ..
+ls
+cd bash
+l
+cd arch-desktop/
+ls
+mkdir firefox-profiles
+ls
+mkdir config
+ls
+ls -la
+mkdir pkg
+ls
+ls 
+ls -a
+ls -la
+rm -rf pkg
+ls
+cd config
+ls
+ls ~/.config
+rm -rf ~/.config/firetools/
+ls
+ls ~/.config
+cp -r ~/.config 
+cp -r ~/.config $(pwd)
+ls
+ls
+$(pwd)
+ls
+cd ..
+ls
+cd config
+ls
+pwd
+cp -r ~/.config /home/james/Documents/bash/arch-desktop/config/
+ls
+cd ..
+ls
+cd config
+ls
+cd ..
+ls
+ls ~/.config
+l
+ls -la
+ls
+cd config/
+ls
+ls -la
+cd .config
+ls
+mv * ..
+ls
+cd ..
+ls
+rm -rf .config
+ls
+rm -rf mimeapps.list 
+rm -rf QtProject.conf 
+rm -rf user-dirs.dirs
+rm -rf user-dirs.locale 
+ls
+rm -rf Electron configstore chromium/ Dharkael/ GIMP gtk-3.0/ gtk-4.0/ ibus pulse VirtualBox/ Bitwarden/ dconf discord gconf gnome-control-center/
+ls
+rm -rf unity3d/ vlc yay
+ls
+rm -rf gnome-session/ godot nautilus/
+ls
+rm -rf 'Code - OSS'/
+ls
+ls
+cd ..
+ls
+rm -rf config
+ls
+cp -r ry/home/james/.mozilla/firefox/8uv7jfu3.private firefox-profiles/
+cp -r /home/james/.mozilla/firefox/8uv7jfu3.private firefox-profiles/
+ls
+cd firefox-profiles/
+ls
+mv 8uv7jfu3.private/ private-profile
+ls
+cd ..
+ls
+exit
