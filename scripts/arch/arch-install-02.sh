@@ -40,13 +40,15 @@ echo -e "${MSGCOLOUR}Creating the user $user for group $usergroup.....${NC}"
 useradd -m -G $usergroup $user 
 passwd $user
 
-##************************** Installing network tools and graphical environment *************************************##
+##************************** Installing Desktop Environment *************************************##
+pacman -S --noconfirm $desktop 
+
+##************************** Installing Application Packages *************************************##
 echo -e "${MSGCOLOUR}Running package installation scripts.....${NC}"
 sh ./install-packages.sh
-sh ./install-packages-aur.sh
+#sh ./install-packages-aur.sh
 
 ##************************** Enable Systemd Services *************************************##
 echo -e "${MSGCOLOUR}Enabling systemd services....${NC}"
 systemctl enable NetworkManager.service
-systemctl enable gdm.service
 systemctl enable ufw.service

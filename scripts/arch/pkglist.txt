@@ -1,6 +1,5 @@
 nvidia-lts
 nvidia-settings
-gnome
 dotnet-sdk
 jdk-openjdk
 nodejs

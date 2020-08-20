@@ -1,6 +1,6 @@
 #!bin\sh
 
-mkdir temp
+mkdir -p temp
 cd temp
 git clone https://aur.archlinux.org/yay.git
 cd yay

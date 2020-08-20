@@ -24,3 +24,7 @@ host="
 ::1		localhost
 127.0.1.1	$hostname.localdomain   $hostname"
 
+user="user"
+usergroup="wheel"
+desktop="gnome"            # DE CHOICE (E.G. KDE)
+
