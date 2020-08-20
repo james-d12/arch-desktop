@@ -47,6 +47,6 @@ sh ./install-packages-aur.sh
 
 ##************************** Enable Systemd Services *************************************##
 echo -e "${MSGCOLOUR}Enabling systemd services....${NC}"
-systemctl enable NetworkManager
-systemctl enable gdm
-systemctl enable ufw
+systemctl enable NetworkManager.service
+systemctl enable gdm.service
+systemctl enable ufw.service
