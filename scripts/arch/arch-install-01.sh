@@ -1,6 +1,6 @@
 #!bin\sh
 
-. arch-install-config.sh
+. ./arch-install-config.sh
 
 #************************** Installing Core Packages *************************************##
 echo -e "${MSGCOLOUR}Preparing to install core packages...${NC}"
@@ -10,9 +10,5 @@ pacstrap $mnt base base-devel $kernel linux-firmware nano
 echo -e "${MSGCOLOUR}Generating fstab file....${NC}"
 genfstab -U $mnt >> $mnt/etc/fstab
 
-mv chroot.sh /mnt
-chmod 700 /mnt/chroot.sh
-
-##************************** chrooting *************************************##
-echo -e "${MSGCOLOUR}Chrooting into arch installation...${NC}"
-arch-chroot /mnt /bin/sh -c "su - -c ./chroot.sh"
+cp arch-install-02.sh /mnt
+chmod 600 /mnt/arch-install-02.sh
