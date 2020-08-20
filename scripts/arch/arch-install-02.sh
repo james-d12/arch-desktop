@@ -13,11 +13,11 @@ hwclock --systohc
 echo -e "${MSGCOLOUR}Configuring localisation...${NC}"
 echo -e "${MSGCOLOUR}Creating backup /etc/locale.gen file at /etc/locale.gen.bak${NC}"
 cp /etc/locale.gen /etc/locale.gen.bak
-sed -i 's/#'$locale.UTF-8'/'$locale.UTF-8'/g' etc/locale.gen
-sed -i 's/#'$locale[[:space:]]ISO-8859-1'/'$locale\s^CO-8859-1'/g' etc/locale.gen
+sed -i 's/#$locale.UTF-8/$locale.UTF-8/g' etc/locale.gen
+sed -i 's/#$locale[[:space:]]ISO-8859-1/$locale[[:space:]]ISO-8859-1/g' etc/locale.gen
 echo -e "${MSGCOLOUR}Setting language in /etc/locale.conf to '$locale.UTF-8'${NC}"
-echo "LANG='$locale.UTF-8'" > /etc/locale.conf
-export "LANG='$locale.UTF-8'"
+echo "LANG=$locale.UTF-8" > /etc/locale.conf
+export "LANG=$locale.UTF-8"
 locale-gen
 
 ##************************** Host Configuration *************************************##
