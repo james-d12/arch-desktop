@@ -1,35 +1,6 @@
 #!bin\sh
 
-MSGCOLOUR='\033[0;33m'
-PROMPTCOLOUR='\033[0;32m'
-NC='\033[0m'
-
-# Parameters
-
-kernel="linux-lts"
-locale="en_GB"
-mnt="/mnt"
-region="Europe"
-city="London"
-hostname="arch-pc"
-host="
-127.0.0.1	localhost
-::1		localhost
-127.0.1.1	$hostname.localdomain   $hostname"
-microcode="intel-ucode"
-
-
-##************************** Installing Core Packages *************************************##
-echo -e "${MSGCOLOUR}Preparing to install core packages...${NC}"
-pacstrap $mnt base base-devel $kernel linux-firmware 
-
-##************************** fstab file *************************************##
-echo -e "${MSGCOLOUR}Generating fstab file....${NC}"
-genfstab -U $mnt >> $mnt/etc/fstab
-
-##************************** chrooting *************************************##
-echo -e "${MSGCOLOUR}Chrooting into arch installation...${NC}"
-arch-chroot $mnt 
+. arch-install-config.sh
 
 ##************************** local date and time ******************************##
 echo -e "${MSGCOLOUR}Configuring local time and date....${NC}"
