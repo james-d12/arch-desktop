@@ -22,7 +22,7 @@ locale-gen
 
 ##************************** Host Configuration *************************************##
 echo -e "${MSGCOLOUR}Setting up host and hostname settings.....${NC}"
-echo "'$hostname'" > /etc/hostname 
+echo "$hostname" > /etc/hostname 
 echo "$host" > /etc/hosts
 
 ##************************** Setting root password *************************************##

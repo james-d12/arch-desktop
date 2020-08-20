@@ -10,5 +10,6 @@ pacstrap $mnt base base-devel $kernel linux-firmware nano
 echo -e "${MSGCOLOUR}Generating fstab file....${NC}"
 genfstab -U $mnt >> $mnt/etc/fstab
 
+echo -e "${MSGCOLOUR}Copying scripts to /mnt point....${NC}"
 mkdir -p /mnt/arch-install-scripts/
 cp * /mnt/arch-install-scripts/
