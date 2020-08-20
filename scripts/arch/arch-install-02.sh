@@ -35,11 +35,18 @@ pacman -S grub efibootmgr $microcode
 grub-install --target=x86_64-efi --bootloader-id=GRUB --efi-directory=$efimnt
 grub-mkconfig -o /boot/grub/grub.cfg
 
+##************************** Adding a User *************************************##
+echo -e "${MSGCOLOUR}Creating the user $user for group $usergroup.....${NC}"
+useradd -m -G $usergroup $user 
+passwd $user
+
 ##************************** Installing network tools and graphical environment *************************************##
+echo -e "${MSGCOLOUR}Running package installation scripts.....${NC}"
 sh ./install-packages.sh
 sh ./install-packages-aur.sh
 
 ##************************** Enable Systemd Services *************************************##
+echo -e "${MSGCOLOUR}Enabling systemd services....${NC}"
 systemctl enable NetworkManager
 systemctl enable gdm
 systemctl enable ufw

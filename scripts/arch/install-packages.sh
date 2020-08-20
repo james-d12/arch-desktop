@@ -1,3 +1,3 @@
 #!bin\sh
 
-sudo pacman -S --needed - < pkglist.txt
+sudo pacman -S - < pkglist.txt

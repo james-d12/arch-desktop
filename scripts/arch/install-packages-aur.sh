@@ -8,4 +8,4 @@ makepkg -si
 cd ..
 rm -rf yay
 
-yay -S --needed - < pkgaurlist.txt
+yay -S - < pkgaurlist.txt
