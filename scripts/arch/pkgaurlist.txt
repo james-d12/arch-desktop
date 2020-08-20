@@ -1,7 +1,6 @@
-bitwarden-bin 1.20.1-1
-gconf 3.2.6+11+g07808097-6
-gnome-terminal-transparency 3.36.2-1
-godot 3.2.2-2
-unity-editor-lts 1:2019.4.4f1-1
-yay 10.0.3-1
-zeal-git 0.6.1.r183.g66aff30-1
+bitwarden-bin 
+gconf 
+gnome-terminal-transparency 
+godot 
+unity-editor-lts 
+zeal-git

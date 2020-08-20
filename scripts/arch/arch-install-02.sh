@@ -37,6 +37,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 ##************************** Installing network tools and graphical environment *************************************##
 sh ./install-packages.sh
+sh ./install-packages-aur.sh
 
 ##************************** Enable Systemd Services *************************************##
 systemctl enable NetworkManager

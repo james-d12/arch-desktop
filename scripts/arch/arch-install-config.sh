@@ -7,6 +7,7 @@ NC='\033[0m'
 # Parameters
 
 kernel="linux-lts"
+microcode="intel-ucode"
 locale="en_GB"
 mnt="/mnt"
 efimnt="/boot/efi"
