@@ -18,6 +18,10 @@ code
 discord
 vlc
 obs-studio
+blender 
+gimp
+flameshot
+chromium
 feedreader
 virtualbox
 virtualbox-host-dkms
