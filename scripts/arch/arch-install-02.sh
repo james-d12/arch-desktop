@@ -1,6 +1,6 @@
 #!bin\sh
 
-. arch-install-config.sh
+. ./arch-install-config.sh
 
 ##************************** local date and time ******************************##
 echo -e "${MSGCOLOUR}Configuring local time and date....${NC}"
