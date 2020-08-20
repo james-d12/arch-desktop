@@ -30,9 +30,9 @@ echo -e "${MSGCOLOUR}Setting root password.....${NC}"
 passwd
 
 ##************************** Installing Bootloader *************************************##
-echo -e "${MSGCOLOUR}Installing grub bootloader and microcode....."
+echo -e "${MSGCOLOUR}Installing grub bootloader and microcode.....${NC}"
 pacman -S grub efibootmgr $microcode
-grub-install --target=x86_64-efi --bootloader-id=GRUB --efi-directory=$mnt
+grub-install --target=x86_64-efi --bootloader-id=GRUB --efi-directory=$efimnt
 grub-mkconfig -o /boot/grub/grub.cfg
 
 ##************************** Installing network tools and graphical environment *************************************##

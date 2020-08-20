@@ -9,6 +9,7 @@ NC='\033[0m'
 kernel="linux-lts"
 locale="en_GB"
 mnt="/mnt"
+efimnt="/boot/efi"
 region="Europe"
 city="London"
 hostname="arch-pc"
