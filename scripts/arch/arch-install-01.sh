@@ -17,8 +17,8 @@ if [ $encrypted == "YES" ]; then
 
     echo -e "${MSGCOLOUR}Formatting encrypted install partitions...${NC}"
     mkfs.fat -F32 /dev/"${drive}1"
-    mkfs.ext4 /dev/"${drive}2"
-    mkfs.ext4 /dev/mapper/$encryptedname
+    mkfs.ext4 -L BOOT /dev/"${drive}2"
+    mkfs.ext4 -L ROOT /dev/mapper/$encryptedname
 
     echo -e "${MSGCOLOUR}Mounting encrypted install partitions...${NC}"
     mount /dev/mapper/$encryptedname $mnt
@@ -55,7 +55,3 @@ cp * $mnt/arch-install-scripts/
 ##************************** chroot *************************************##
 echo -e "${MSGCOLOUR}Chrooting into $mnt point....${NC}"
 arch-chroot $mnt /bin/bash -c "bash arch-install-scripts/arch-install-02.sh"
-
-##************************** Cleanup and Finish *************************************##
-umount -a
-shutdown now

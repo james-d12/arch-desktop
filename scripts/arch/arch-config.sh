@@ -13,7 +13,7 @@ NC='\033[0m'
 drive="sda"                # DRIVE NAME
 mnt="/mnt"                 # MOUNT POINT
 efimnt="/boot/efi"         # IF UEFI, EFI MOUNT POINT
-encrypted="NO"            # YES | NO
+encrypted="NO"             # YES | NO
 encryptedname="cr_root"    # Encrypted drive name
 encryptedswapsize="4096"   # Encrypted SWAP size (MB)
 
@@ -36,6 +36,6 @@ host="
 
 ## Other Parameters
 
-user="user"                # NAME OF USER
-usergroup="wheel"          # GROUP FOR USER
+user="user"                # NAME OF USER (MUST BE LOWERCASE)
+usergroup="wheel"          # GROUP FOR USER (MUST BE LOWERCASE)
 

@@ -47,4 +47,4 @@ fi
 
 
 ##************************** Finish and Cleanup ******************************##
-shutdown now
+reboot
