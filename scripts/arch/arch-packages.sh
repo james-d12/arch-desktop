@@ -84,6 +84,9 @@ packages=(
     'signal-desktop'            # Signal Desktop App
 )
 
+touch pkgs.txt
 for pkg in "${packages[@]}"; do
-    sudo pacman -S "$pkg" --noconfirm --needed
+    echo "$pkg" >> pkgs.txt
 done
+sudo pacman -S --noconfirm --needed - < pkgs.txt
+rm -rf pkgs.txt

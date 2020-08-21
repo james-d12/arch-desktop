@@ -9,7 +9,9 @@ packages=(
     'unity-editor-lts'
 )
 
+touch pkgs.txt
 for pkg in "${packages[@]}"; do
-    yay -S "$pkg" --noconfirm --needed
+    echo "$pkg" >> pkgs.txt
 done
-
+yay -S --noconfirm --needed - < pkgs.txt
+rm -rf pkgs.txt
