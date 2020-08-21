@@ -20,8 +20,8 @@ if [ $encrypted == "YES" ]; then
     mount /dev/mapper/$encryptedname $mnt
     mkdir -p $mnt/boot
     mount /dev/"${drive}2" $mnt/boot
-    mkdir -p $mnt/$efimnt
-    mount /dev/"${drive}1" $mnt/$efimnt
+    mkdir -p $mnt$efimnt
+    mount /dev/"${drive}1" $mnt$efimnt
 else
     echo -e "${MSGCOLOUR}Formatting install partitions...${NC}"
     mkfs.fat -F32 /dev/"${drive}1"
@@ -31,8 +31,8 @@ else
     echo -e "${MSGCOLOUR}Mounting install partitions...${NC}"
     swapon /dev/"${drive}2"
     mkdir -p $mnt/boot 
-    mkdir -p $mnt/$efimnt
-    mount /dev/"${drive}1" $mnt/$efimnt
+    mkdir -p $mnt$efimnt
+    mount /dev/"${drive}1" $mnt$efimnt
     mount /dev/"${drive}3" $mnt
 fi
 
