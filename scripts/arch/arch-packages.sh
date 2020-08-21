@@ -47,4 +47,7 @@ packages=(
     'virtualbox-host-dkms'
 )
 
-sudo pacman -S --needed --noconfirm - < ${packages[@]}
+for pkg in "${packages[@]}"; do
+    echo "INSTALLING: ${PKG}"
+    sudo pacman -S "$PKG" --noconfirm --needed
+done

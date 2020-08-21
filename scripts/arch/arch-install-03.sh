@@ -4,11 +4,11 @@
 
 ##************************** Installing Application Packages *************************************##
 echo -e "${MSGCOLOUR}Running package installation script.....${NC}"
-./arch-packages.sh
+bash ./arch-packages.sh
 
 if [ ! "$EUID" -ne 0 ]; then 
     echo -e "${MSGCOLOUR}Running AUR package installation script.....${NC}"
-    ./arch-packages-aur.sh  
+    bash ./arch-packages-aur.sh  
     exit
 else
     echo -e "${MSGCOLOUR}Could not install AUR packages running with heightened privileges.....${NC}"
