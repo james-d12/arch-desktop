@@ -1,6 +1,6 @@
 #!bin\bash
 
-. ./arch-config.sh
+. arch-install-scripts/arch-config.sh
 
 ##************************** Encrypted Install - Add SWAP ******************************##
 if [ $encrypted == "YES" ]; then
