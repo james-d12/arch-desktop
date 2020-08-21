@@ -11,7 +11,7 @@ if [ $encrypted == "YES" ]; then
     swapon /swapfile
     echo -e "${MSGCOLOUR}Backing up /etc/fstab to /etc/fstab.bak....${NC}"
     cp /etc/fstab /etc/fstab.bak
-    echo "/swapfile none swap s w 0 0" >> /etc/fstab
+    echo "/swapfile none swap sw 0 0" >> /etc/fstab
 fi
 
 ##************************** local date and time ******************************##
