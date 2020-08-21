@@ -1,3 +1,3 @@
 #!bin\sh
 
-sudo pacman -S --noconfirm - < pkglist.txt
+sudo pacman -S --needed --noconfirm - < pkglist.txt

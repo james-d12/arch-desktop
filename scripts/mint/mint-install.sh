@@ -51,9 +51,9 @@ sudo apt-get update
 sudo apt-get install youtube-dlg $flags
 
 ## Install bitwarden
-wget -O downloads/bitwarden.deb "https://vault.bitwarden.com/download/?app=desktop&platform=linux&variant=deb" --header "Referer: www.bitwarden.com"
-sudo dpkg -i downloads/bitwarden.deb 
-sudo apt install --fix-broken $flags
+#wget -O downloads/bitwarden.deb "https://vault.bitwarden.com/download/?app=desktop&platform=linux&variant=deb" --header "Referer: www.bitwarden.com"
+#sudo dpkg -i downloads/bitwarden.deb 
+#sudo apt install --fix-broken $flags
 
 ## Install tresorit
 wget -O downloads/tresorit_installer.run "https://installerstorage.blob.core.windows.net/public/install/tresorit_installer.run" --header "Referer: www.tresorit.com"
@@ -69,7 +69,7 @@ sudo dpkg -i downloads/discord.deb
 sudo apt install  --fix-broken $flags
 
 ## Drivers
-sudo ubuntu-drivers autoinstall 
+#sudo ubuntu-drivers autoinstall 
 
 mkdir downloads
 

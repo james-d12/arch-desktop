@@ -1,5 +1,7 @@
+xorg
 nvidia-lts
 nvidia-settings
+gnome
 dotnet-sdk
 jdk-openjdk
 nodejs
@@ -11,6 +13,8 @@ make
 cmake
 python-pip
 ghc
+firejail
+apparmor
 grub-customizer
 firefox
 code

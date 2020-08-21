@@ -2,7 +2,6 @@
 
 . ./arch-install-config.sh
 
-
 ##************************** Encrypted Install - Add SWAP ******************************##
 if [ $encrypted == "YES" ]; then
     echo -e "${MSGCOLOUR}Adding encrypted SWAP file....${NC}"
@@ -69,12 +68,14 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 
 ##************************** Adding a User *************************************##
-echo -e "${MSGCOLOUR}Creating the user $user for group $usergroup.....${NC}"
-useradd -m -G $usergroup $user 
-passwd $user
 
-##************************** Installing Desktop Environment *************************************##
-pacman -S --noconfirm $desktop 
+if id "$user" &>/dev/null; then
+    echo -e "${MSGCOLOUR}User $user already exists....${NC}"
+else
+    echo -e "${MSGCOLOUR}Creating the user $user for group $usergroup.....${NC}"
+    useradd -m -G $usergroup $user 
+    passwd $user
+fi
 
 ##************************** Installing Application Packages *************************************##
 echo -e "${MSGCOLOUR}Running package installation scripts.....${NC}"
@@ -83,6 +84,14 @@ sh ./install-packages.sh
 ##************************** Enable Systemd Services *************************************##
 echo -e "${MSGCOLOUR}Enabling systemd services....${NC}"
 
-command -v gdm >/dev/null 2>&1 && { systemctl enable gdm.service }
-command -v networkmanager >/dev/null 2>&1 && { systemctl enable NetworkManager.service }
-command -v ufw >/dev/null 2>&1 && { systemctl enable ufw.service }
+systemctl enable gdm.service 
+systemctl enable NetworkManager.service 
+systemctl enable ufw.service 
+systemctl enable apparmor.service
+
+
+##************************** Finish Installation and Cleanup *************************************##
+echo -e "${MSGCOLOUR}Umounting all drives and shutting down....${NC}"
+exit
+umount -a
+shutdown now
