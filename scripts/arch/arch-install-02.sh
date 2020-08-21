@@ -1,4 +1,4 @@
-#!bin\sh
+#!bin\bash
 
 . ./arch-install-config.sh
 
@@ -48,10 +48,10 @@ echo "$host" > /etc/hosts
 echo -e "${MSGCOLOUR}Setting root password.....${NC}"
 passwd
 
-##************************** Installing Bootloader *************************************##
+##************************** Installing Bootloader and NetworkManager *************************************##
 
 echo -e "${MSGCOLOUR}Installing grub bootloader and microcode.....${NC}"
-pacman -S grub efibootmgr $microcode
+pacman -S grub efibootmgr networkmanager $microcode
 
 if [ $encrypted == "YES" ]; then
     echo -e "${MSGCOLOUR}Configuring GRUB for encrypted install.....${NC}"
@@ -65,7 +65,7 @@ fi
 
 grub-install --target=x86_64-efi --bootloader-id=GRUB --efi-directory=$efimnt
 grub-mkconfig -o /boot/grub/grub.cfg
-
+systemctl enable NetworkManager
 
 ##************************** Adding a User *************************************##
 
@@ -76,19 +76,6 @@ else
     useradd -m -G $usergroup $user 
     passwd $user
 fi
-
-##************************** Installing Application Packages *************************************##
-echo -e "${MSGCOLOUR}Running package installation scripts.....${NC}"
-sh ./install-packages.sh
-
-##************************** Enable Systemd Services *************************************##
-echo -e "${MSGCOLOUR}Enabling systemd services....${NC}"
-
-systemctl enable gdm.service 
-systemctl enable NetworkManager.service 
-systemctl enable ufw.service 
-systemctl enable apparmor.service
-
 
 ##************************** Finish Installation and Cleanup *************************************##
 echo -e "${MSGCOLOUR}Umounting all drives and shutting down....${NC}"

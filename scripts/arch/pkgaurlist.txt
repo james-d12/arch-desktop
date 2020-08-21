@@ -1,6 +1,0 @@
-bitwarden-bin 
-gconf 
-gnome-terminal-transparency 
-godot 
-unity-editor-lts 
-zeal-git

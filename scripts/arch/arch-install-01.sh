@@ -1,6 +1,10 @@
-#!bin\sh
+#!bin\bash
 
 . ./arch-install-config.sh
+
+
+##************************** Network Configuration *************************************##
+
 
 #************************** Formatting and Mounting drives *************************************##
 
