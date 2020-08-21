@@ -10,6 +10,8 @@ NC='\033[0m'
 
 drive="sdb"                # DRIVE NAME
 encrypted="YES"            # YES | NO
+encryptedname="cr_root"    # Encrypted drive name
+encryptedswapsize="4096"   # Encrypted SWAP size
 kernel="linux-lts"         # KERNEL NAME
 system="UEFI"              # UEFI | BIOS
 microcode="intel-ucode"    # MICROCODE
