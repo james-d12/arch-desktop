@@ -1,6 +1,6 @@
 #!bin\bash
 
-packages-aur=(
+packages=(
     'gconf' 
     'gnome-terminal-transparency' 
     'bitwarden-bin' 
@@ -9,4 +9,7 @@ packages-aur=(
     'unity-editor-lts'
 )
 
-yay -S --needed --noconfirm - < ${packages-aur[@]}
+for pkg in "${packages[@]}"; do
+    yay -S "$pkg" --noconfirm --needed
+done
+

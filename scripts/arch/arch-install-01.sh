@@ -1,6 +1,6 @@
 #!bin\bash
 
-. ./arch-install-config.sh
+. ./arch-config.sh
 
 
 ##************************** Network Configuration *************************************##

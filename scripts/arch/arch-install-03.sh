@@ -1,6 +1,6 @@
 #!bin\bash
 
-. ./arch-install-config.sh
+. ./arch-config.shg.sh
 
 ##************************** Installing Application Packages *************************************##
 echo -e "${MSGCOLOUR}Running package installation script.....${NC}"
