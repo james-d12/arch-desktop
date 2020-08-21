@@ -44,3 +44,7 @@ if pacman -Qs ufw > /dev/null; then
     sudo allow Deluge
     sudo ufw enable
 fi
+
+
+##************************** Finish and Cleanup ******************************##
+shutdown now

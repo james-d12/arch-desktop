@@ -10,10 +10,10 @@ NC='\033[0m'
 
 ## Drive Parameters
 
-drive="sdb"                # DRIVE NAME
+drive="sda"                # DRIVE NAME
 mnt="/mnt"                 # MOUNT POINT
 efimnt="/boot/efi"         # IF UEFI, EFI MOUNT POINT
-encrypted="YES"            # YES | NO
+encrypted="NO"            # YES | NO
 encryptedname="cr_root"    # Encrypted drive name
 encryptedswapsize="4096"   # Encrypted SWAP size (MB)
 

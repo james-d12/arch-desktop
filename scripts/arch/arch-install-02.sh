@@ -44,7 +44,7 @@ passwd
 ##************************** Installing Bootloader and NetworkManager *************************************##
 
 echo -e "${MSGCOLOUR}Installing grub bootloader and microcode.....${NC}"
-pacman -S grub efibootmgr networkmanager $microcode
+pacman -S --noconfirm --needed grub efibootmgr networkmanager $microcode
 
 if [ $encrypted == "YES" ]; then
     echo -e "${MSGCOLOUR}Configuring GRUB for encrypted install.....${NC}"
