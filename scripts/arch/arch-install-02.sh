@@ -20,7 +20,7 @@ echo -e "${MSGCOLOUR}Enabling multilib repository....${NC}"
 echo -e "${MSGCOLOUR}Creating backup /etc/pacman.conf file at /etc/pacman.conf.bak${NC}"
 cp /etc/pacman.conf /etc/pacman.conf.bak
 sed -i 's/#[multilib]/[multilib]/g' /etc/pacman.conf
-sed -i 's/"#Include[[:space:]]=[[:space:]]/etc/pacman.d/mirrorlist"/"Include[[:space:]]=[[:space:]]/etc/pacman.d/mirrorlist"/g' /etc/pacman.conf
+#sed -i 's/"#Include[[:space:]]=[[:space:]]/etc/pacman.d/mirrorlist"/"Include[[:space:]]=[[:space:]]/etc/pacman.d/mirrorlist"/g' /etc/pacman.conf
 
 ##************************** local date and time ******************************##
 echo -e "${MSGCOLOUR}Configuring local time and date....${NC}"
@@ -51,20 +51,22 @@ passwd
 
 ##************************** Installing Bootloader *************************************##
 
+echo -e "${MSGCOLOUR}Installing grub bootloader and microcode.....${NC}"
+pacman -S grub efibootmgr $microcode
+
 if [ $encrypted == "YES" ]; then
     echo -e "${MSGCOLOUR}Configuring GRUB for encrypted install.....${NC}"
     echo -e "${MSGCOLOUR}Backing up file /etc/default/grub to /etc/default/grub.bak.....${NC}"
     cp /etc/default/grub /etc/default/grub.bak
     sed -i 's/GRUB_CMDLINE_LINUX=""/GRUB_CMDLINE_LINUX="cryptdevice=/dev/"${drive}3:$encryptedname"/g' /etc/default/grub
     echo -e "${MSGCOLOUR}Backing up file /etc/mkinitcpio.conf to /etc/mkinitcpio.conf.bak.....${NC}"
-    sed -i 's/HOOKS=(base udev autodetect modconf block filesystems keyboard fsck)/HOOKS=(base udev autodetect modconf block encrypt filesystems keyboard fsck/g' /etc/mkinitcpio.conf
+    sed -i 's/HOOKS=(base udev autodetect modconf block filesystems keyboard fsck)/HOOKS=(base udev autodetect modconf block encrypt filesystems keyboard fsck)/g' /etc/mkinitcpio.conf
     mkinitcpio -p $kernel
 fi
 
-echo -e "${MSGCOLOUR}Installing grub bootloader and microcode.....${NC}"
-pacman -S grub efibootmgr $microcode
 grub-install --target=x86_64-efi --bootloader-id=GRUB --efi-directory=$efimnt
 grub-mkconfig -o /boot/grub/grub.cfg
+
 
 ##************************** Adding a User *************************************##
 echo -e "${MSGCOLOUR}Creating the user $user for group $usergroup.....${NC}"

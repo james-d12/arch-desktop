@@ -5,34 +5,35 @@
 #************************** Formatting and Mounting drives *************************************##
 
 if [ $encrypted == "YES" ]; then
+    echo -e "${MSGCOLOUR}Setting up cryptsetup...${NC}"
+    modprobe dm-crypt
+    modprobe dm-mod
+    cryptsetup luksFormat -v -s 512 -h sha512 /dev/"${drive}3"
+    cryptsetup open /dev/"${drive}3" $encryptedname
 
-modprobe dm-crypt
-modprobe dm-mod
-cryptsetup luksFormat -v -s 512 -h sha512 /dev/"${drive}3"
-cryptsetup open /dev/"${drive}3" $encryptedname
+    echo -e "${MSGCOLOUR}Formatting encrypted install partitions...${NC}"
+    mkfs.fat -F32 /dev/"${drive}1"
+    mkfs.ext4 /dev/"${drive}2"
+    mkfs.ext4 /dev/mapper/$encryptedname
 
-mkfs.fat -F32 /dev/"${drive}1"
-mkfs.ext4 /dev/"${drive}2"
-mkfs.ext4 /dev/mapper/$encryptedname
-
-mount /dev/mapper/$encryptedname $mnt
-mkdir -p $mnt/boot
-mount /dev/"${drive}2" $mnt/boot
-mkdir -p $mnt/$efimnt
-mount /dev/"${drive}1" $mnt/$efimnt
-
+    echo -e "${MSGCOLOUR}Mounting encrypted install partitions...${NC}"
+    mount /dev/mapper/$encryptedname $mnt
+    mkdir -p $mnt/boot
+    mount /dev/"${drive}2" $mnt/boot
+    mkdir -p $mnt/$efimnt
+    mount /dev/"${drive}1" $mnt/$efimnt
 else
+    echo -e "${MSGCOLOUR}Formatting install partitions...${NC}"
+    mkfs.fat -F32 /dev/"${drive}1"
+    mkswap -L SWAP /dev/"${drive}2"
+    mkfs.ext4 -L ROOT /dev/"${drive}3"
 
-mkfs.fat -F32 /dev/"${drive}1"
-mkswap -L SWAP /dev/"${drive}2"
-swapon /dev/"${drive}2"
-mkfs.ext4 -L ROOT /dev/"${drive}3"
-mkdir -p $mnt/$efimnt
-mount /dev/"${drive}1" $mnt/$efimnt
-mount /dev/"${drive}3" $mnt
-
+    echo -e "${MSGCOLOUR}Mounting install partitions...${NC}"
+    swapon /dev/"${drive}2"
+    mkdir -p $mnt/$efimnt
+    mount /dev/"${drive}1" $mnt/$efimnt
+    mount /dev/"${drive}3" $mnt
 fi
-
 
 #************************** Installing Core Packages *************************************##
 echo -e "${MSGCOLOUR}Preparing to install core packages...${NC}"
