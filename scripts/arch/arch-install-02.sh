@@ -68,6 +68,7 @@ else
     echo -e "${MSGCOLOUR}Creating the user $user for group $usergroup.....${NC}"
     useradd -m -G $usergroup $user 
     passwd $user
+    echo "$user ALL=(ALL) ALL" >> /etc/sudoers
 fi
 
 ##************************** Finish Installation and Cleanup *************************************##
