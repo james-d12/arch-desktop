@@ -11,28 +11,35 @@ else
     bash ./arch-packages-aur.sh  
 fi
 
+echo -e "${MSGCOLOUR}Running pip package installation script.....${NC}"
+bash ./arch-packages-other.sh
+
 ##************************** Enable Systemd Services *************************************##
 echo -e "${MSGCOLOUR}Enabling systemd services....${NC}"
 
-if pacman -Qs gdm > /dev/null ; then
+if sudo pacman -Qs gdm > /dev/null ; then
     systemctl enable gdm.service
 fi
 
-if pacman -Qs networkmanager > /dev/null ; then
+if sudo pacman -Qs lightdm > /dev/null ; then
+    systemctl enable lightdm.service
+fi
+
+if sudo pacman -Qs networkmanager > /dev/null ; then
     systemctl enable NetworkManager.service
 fi
 
-if pacman -Qs ufw > /dev/null; then 
+if sudo pacman -Qs ufw > /dev/null; then 
     systemctl enable ufw.service
 fi
 
-if pacman -Qs apparmor > /dev/null; then 
+if sudo pacman -Qs apparmor > /dev/null; then 
     systemctl enable apparmor.service
 fi
 
 ##************************** Network Security Configuration ******************************##
 
-if pacman -Qs ufw > /dev/null; then
+if sudo pacman -Qs ufw > /dev/null; then
     sudo ufw limit 22/tcp  
     sudo ufw limit ssh
     sudo ufw allow 80/tcp  
@@ -45,6 +52,13 @@ if pacman -Qs ufw > /dev/null; then
     sudo ufw enable
 fi
 
+##************************** Performance Improvements ******************************##
+sudo echo "vm.swappiness=10" >> /etc/sysctl.d/99-swappiness.conf
+
+
+##************************** SSD Performance Improvements ******************************##
+sudo pacman -S --needed --noconfirm util-linux 
+sudo systemctl enable fstrim.timer
 
 ##************************** Finish and Cleanup ******************************##
 reboot

@@ -5,12 +5,14 @@ packages=(
     'linux-lts-headers'         # Headers for LTS Kernel
     'nvidia-lts'                # Nvidia LTS Driver
 
+    #*********** LOGIN MANAGER SETUP ************#
+    'gdm'
+
     #*********** DESKTOP SETUP ************#
     'baobab'
     'eog'
     'evince'
     'file-roller'
-    'gdm'
     'gnome-calculator'
     'gnome-characters'
     'gnome-color-manager'
@@ -44,17 +46,24 @@ packages=(
     'git'                       # Software Management
     'wget'                      # File Downloader
     'curl'                      # File Downloader
+    'neofetch'                  # CLI Information Tool
+    'hwinfo'                    # Hardware CLI tool
+    'htop'                      # CLI Task Manager
+    'dmidecode'                 # Interface For Memory
 
-    #*********** PROGRAMMING LANGUAGE SETUP ************#
+    #*********** PROGRAMMING LANGUAGE / DEVELOPMENT TOOLS SETUP ************#
+    'nasm'                      # Assembler
     'gcc'                       # C/C++ Compiler
     'gdb'                       # C/C++ Debugger
     'clang'                     # Clang C/C++ Compiler
     'cppcheck'                  # Compile-time C++ Checker
     'nodejs'                    # Node.js
+    'npm'                       # Node Package Manager
     'rust'                      # Rust Package
     'ghc'                       # Haskell Compiler
     'jdk-openjdk'               # Java SDK
     'dotnet-sdk'                # .NET SDK
+    'mono'                      # Mono For C#
     'python-pip'                # Python3 PIP
 
     #*********** UTILITY APPLICATIONS SETUP ************#

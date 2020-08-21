@@ -13,9 +13,8 @@ sed -i "s/\s*#.*//g; /^$/ d; /#.*/ d;" $temp_music_file
 counter=1
 while IFS= read -r line
 do
-    video_type=$(awk 'NR=='$counter'{ print $1 }' $temp_music_file)
-    dir=$(awk 'NR=='$counter'{ print $2 }' $temp_music_file)
-    line=$(awk 'NR=='$counter'{ print $3 }' $temp_music_file)
+    dir=$(awk 'NR=='$counter'{ print $1 }' $temp_music_file)
+    line=$(awk 'NR=='$counter'{ print $2 }' $temp_music_file)
     mkdir -p $dir
     youtube-dl -x --audio-format mp3 -o ''$dir'/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s' $line
     counter=`expr $counter + 1`

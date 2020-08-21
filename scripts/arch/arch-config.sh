@@ -10,6 +10,7 @@ NC='\033[0m'
 
 ## Drive Parameters
 
+ssd='NO'                   # IS DRIVE SSD? YES | NO
 drive="sda"                # DRIVE NAME
 mnt="/mnt"                 # MOUNT POINT
 efimnt="/boot/efi"         # IF UEFI, EFI MOUNT POINT
