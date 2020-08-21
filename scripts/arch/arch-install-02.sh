@@ -14,13 +14,6 @@ if [ $encrypted == "YES" ]; then
     echo "/swapfile none swap sw 0 0" >> /etc/fstab
 fi
 
-##************************** Enable Multilib repository ******************************##
-echo -e "${MSGCOLOUR}Enabling multilib repository....${NC}"
-echo -e "${MSGCOLOUR}Creating backup /etc/pacman.conf file at /etc/pacman.conf.bak${NC}"
-cp /etc/pacman.conf /etc/pacman.conf.bak
-sed -i 's/#[multilib]/[multilib]/g' /etc/pacman.conf
-#sed -i 's/"#Include[[:space:]]=[[:space:]]/etc/pacman.d/mirrorlist"/"Include[[:space:]]=[[:space:]]/etc/pacman.d/mirrorlist"/g' /etc/pacman.conf
-
 ##************************** local date and time ******************************##
 echo -e "${MSGCOLOUR}Configuring local time and date....${NC}"
 timedatectl set-ntp true
@@ -32,8 +25,8 @@ hwclock --systohc
 echo -e "${MSGCOLOUR}Configuring localisation...${NC}"
 echo -e "${MSGCOLOUR}Creating backup /etc/locale.gen file at /etc/locale.gen.bak${NC}"
 cp /etc/locale.gen /etc/locale.gen.bak
-sed -i 's/#$locale.UTF-8/$locale.UTF-8/g' /etc/locale.gen
-sed -i 's/#$locale[[:space:]]ISO-8859-1/$locale[[:space:]]ISO-8859-1/g' /etc/locale.gen
+sed -i "s/#${locale}.UTF-8/$locale.UTF-8/g" /etc/locale.gen
+sed -i "s/#${locale}[[:space:]]ISO-8859-1/${locale}[[:space:]]ISO-8859-1/g" /etc/locale.gen
 echo -e "${MSGCOLOUR}Setting language in /etc/locale.conf to '$locale.UTF-8'${NC}"
 echo "LANG=$locale.UTF-8" > /etc/locale.conf
 export "LANG=$locale.UTF-8"
@@ -78,7 +71,4 @@ else
 fi
 
 ##************************** Finish Installation and Cleanup *************************************##
-echo -e "${MSGCOLOUR}Umounting all drives and shutting down....${NC}"
-exit
-umount -a
-shutdown now
+echo -e "${MSGCOLOUR}Script Finished....${NC}"
