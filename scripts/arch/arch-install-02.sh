@@ -26,7 +26,7 @@ echo -e "${MSGCOLOUR}Configuring localisation...${NC}"
 echo -e "${MSGCOLOUR}Creating backup /etc/locale.gen file at /etc/locale.gen.bak${NC}"
 cp /etc/locale.gen /etc/locale.gen.bak
 sed -i "s/#${locale}.UTF-8/$locale.UTF-8/g" /etc/locale.gen
-sed -i "s/#${locale}\sISO-8859-1/${locale}\sISO-8859-1/g" /etc/locale.gen
+sed -i "s/#${locale} ISO-8859-1/${locale} ISO-8859-1/g" /etc/locale.gen
 echo -e "${MSGCOLOUR}Setting language in /etc/locale.conf to '$locale.UTF-8'${NC}"
 echo "LANG=$locale.UTF-8" > /etc/locale.conf
 export "LANG=$locale.UTF-8"
@@ -50,7 +50,8 @@ if [ $encrypted == "YES" ]; then
     echo -e "${MSGCOLOUR}Configuring GRUB for encrypted install.....${NC}"
     echo -e "${MSGCOLOUR}Backing up file /etc/default/grub to /etc/default/grub.bak.....${NC}"
     cp /etc/default/grub /etc/default/grub.bak
-    sed -i 's/GRUB_CMDLINE_LINUX=""/GRUB_CMDLINE_LINUX="cryptdevice=/dev/"${drive}3:$encryptedname"/g' /etc/default/grub
+    line='GRUB_CMDLINE_LINUX="cryptdevice=/dev/'"${drive}"'3:'"${encryptedname}"'"'
+    sed -i 's#GRUB_CMDLINE_LINUX=""#'"${line}"'#g' /etc/default/grub
     echo -e "${MSGCOLOUR}Backing up file /etc/mkinitcpio.conf to /etc/mkinitcpio.conf.bak.....${NC}"
     sed -i 's/HOOKS=(base udev autodetect modconf block filesystems keyboard fsck)/HOOKS=(base udev autodetect modconf block encrypt filesystems keyboard fsck)/g' /etc/mkinitcpio.conf
     mkinitcpio -p $kernel

@@ -17,14 +17,14 @@ if [ $encrypted == "YES" ]; then
 
     echo -e "${MSGCOLOUR}Formatting encrypted install partitions...${NC}"
     mkfs.fat -F32 /dev/"${drive}1"
-    mkfs.ext4 -L BOOT /dev/"${drive}2"
-    mkfs.ext4 -L ROOT /dev/mapper/$encryptedname
+    mkfs.ext4 /dev/"${drive}2"
+    mkfs.ext4 /dev/mapper/$encryptedname
 
     echo -e "${MSGCOLOUR}Mounting encrypted install partitions...${NC}"
     mount /dev/mapper/$encryptedname $mnt
-    mkdir -p $mnt/boot
+    mkdir $mnt/boot
     mount /dev/"${drive}2" $mnt/boot
-    mkdir -p $mnt$efimnt
+    mkdir $mnt$efimnt
     mount /dev/"${drive}1" $mnt$efimnt
 else
     echo -e "${MSGCOLOUR}Formatting install partitions...${NC}"

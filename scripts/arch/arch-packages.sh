@@ -41,6 +41,9 @@ packages=(
     'gnome-tweaks'              
 
     #*********** SYSTEM TOOLS SETUP ************#
+    'mtools'
+    'dosfstools'
+    'os-prober'                 # Detects other OSs
     'make'                      # Linux Build Tool
     'cmake'                     # Build Tool
     'git'                       # Software Management
