@@ -56,3 +56,7 @@ cp * $mnt/arch-install-scripts/
 echo -e "${MSGCOLOUR}Chrooting into $mnt point....${NC}"
 echo -e "${MSGCOLOUR}Run the 'arch-install-02.sh' command in the directory 'arch-install-scripts/'....${NC}"
 arch-chroot $mnt /bin/bash -c "bash arch-install-scripts/arch-install-02.sh"
+
+##************************** Cleanup and Finish *************************************##
+umount -a
+shutdown now
