@@ -8,4 +8,4 @@ makepkg -si
 cd ..
 rm -rf yay
 
-yay -S - < pkgaurlist.txt
+yay -S --noconfirm - < pkgaurlist.txt
