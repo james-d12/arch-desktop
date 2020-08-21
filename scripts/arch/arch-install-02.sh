@@ -58,6 +58,7 @@ fi
 
 grub-install --target=x86_64-efi --bootloader-id=GRUB --efi-directory=$efimnt
 grub-mkconfig -o /boot/grub/grub.cfg
+mkinitcpio -p $kernel
 systemctl enable NetworkManager
 
 ##************************** Adding a User *************************************##
