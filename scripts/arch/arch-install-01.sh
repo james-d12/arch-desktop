@@ -30,6 +30,7 @@ else
 
     echo -e "${MSGCOLOUR}Mounting install partitions...${NC}"
     swapon /dev/"${drive}2"
+    mkdir -p $mnt/boot 
     mkdir -p $mnt/$efimnt
     mount /dev/"${drive}1" $mnt/$efimnt
     mount /dev/"${drive}3" $mnt
