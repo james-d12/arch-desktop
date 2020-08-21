@@ -82,5 +82,7 @@ sh ./install-packages.sh
 
 ##************************** Enable Systemd Services *************************************##
 echo -e "${MSGCOLOUR}Enabling systemd services....${NC}"
-systemctl enable NetworkManager.service
-systemctl enable ufw.service
+
+command -v gdm >/dev/null 2>&1 && { systemctl enable gdm.service }
+command -v networkmanager >/dev/null 2>&1 && { systemctl enable NetworkManager.service }
+command -v ufw >/dev/null 2>&1 && { systemctl enable ufw.service }
