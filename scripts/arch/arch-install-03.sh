@@ -9,7 +9,7 @@ echo -e "${MSGCOLOUR}Running package installation script.....${NC}"
 bash ./arch-packages.sh
 
 echo -e "${MSGCOLOUR}Running AUR package installation script.....${NC}"
-bash ./arch-packages-aur.sh  
+bash ./arch-packages-aur.sh
 
 echo -e "${MSGCOLOUR}Running pip package installation script.....${NC}"
 bash ./arch-packages-other.sh
@@ -63,7 +63,7 @@ if sudo pacman -Qs sysctl > /dev/null; then
     sudo sysctl -a --pattern 'net.ipv4.conf.(eth|wlan)0.arp'
 fi
 
-cat <<EOF > /etc/host.conf
+sudo cat <<EOF > /etc/host.conf
 order bind,hosts
 multi on
 EOF
@@ -74,11 +74,13 @@ if sudo pacman -Qs fail2ban > /dev/null; then
     sudo systemctl start fail2ban
 fi
 
-echo "listening ports"
-sudo netstat -tunlp
+if sudo pacman -Qs netstat-nat > /dev/null; then
+    echo "listening ports"
+    sudo netstat -tunlp
+fi
 
 ##************************** Performance Improvements ******************************##
-sudo echo "vm.swappiness=10" >> sudo /etc/sysctl.d/99-swappiness.conf      
+sudo echo "vm.swappiness=10" >> /etc/sysctl.d/99-swappiness.conf      
 
 ##************************** SSD Performance Improvements ******************************##
 

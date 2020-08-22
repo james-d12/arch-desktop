@@ -10,6 +10,7 @@ packages=(
     'nvidia-lts'                # Nvidia LTS Driver
 
     #*********** SYSTEM TOOLS SETUP ************#
+    'netstat-nat'               # NAT Connections Tool
     'mtools'                    # MS-DOS Disk Tools
     'dosfstools'                # DOS Filesystem Utilities
     'os-prober'                 # Detects other OSs

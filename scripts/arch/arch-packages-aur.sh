@@ -12,7 +12,6 @@ fi
 
 packages=(
     'gconf'                         # Utility
-    'gnome-terminal-transparency'   # Gnome-Terminal With Transparency Support
     'bitwarden-bin'                 # Password Manager
     'brave-bin'                     # Privacy Focused Web Browser
     'godot'                         # Lightweight Game-Engine
