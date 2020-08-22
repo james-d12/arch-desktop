@@ -1,5 +1,5 @@
 #!bin\bash
 
 depackages=(
-    'kde'
+    'plasma'
 )
