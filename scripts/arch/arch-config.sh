@@ -1,12 +1,16 @@
 #!bin\bash
 
-# Coloured output
-
-MSGCOLOUR='\033[0;33m'
-PROMPTCOLOUR='\033[0;32m'
-NC='\033[0m'
 
 #**************************** Parameters ************************#
+
+## Desktop Environment Parameters
+
+desktopenvironment="gnome-minimal"   
+# SELECT DESKTOP ENVIRONMENT, OPTIONS ARE:
+# - gnome                   | Installs the Gnome group package.
+# - gnome-minimal           | Install Gnome with a minimal set of applications
+# - kde                     | Installs KDE plasma packages
+# - custom                  | Set specific desktop packages yourself such as window manager or group not listed
 
 ## Drive Parameters
 
@@ -40,11 +44,8 @@ host="
 user="user"                # NAME OF USER (MUST BE LOWERCASE)
 usergroup="wheel"          # GROUP FOR USER (MUST BE LOWERCASE)
 
-desktopenvironment="gnome-minimal"   
-# SELECT DESKTOP ENVIRONMENT, OPTIONS ARE:
-# - gnome                   | Installs the Gnome group package.
-# - gnome-minimal           | Install Gnome with a minimal set of applications
-# - kde                     | Installs KDE plasma packages
-# - custom                  | Set specific desktop packages yourself such as window manager or group not listed
+# Coloured output
 
-
+MSGCOLOUR='\033[0;33m'
+PROMPTCOLOUR='\033[0;32m'
+NC='\033[0m'
