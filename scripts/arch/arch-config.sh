@@ -25,7 +25,7 @@ microcode="intel-ucode"    # MICROCODE (amd/intel-ucode)
 system="UEFI"              # UEFI | BIOS
 
 ## Locale and Network Parameters
-
+ 
 locale="en_GB"             # LOCALE
 region="Europe"            # REGION
 city="London"              # CITY
@@ -39,4 +39,12 @@ host="
 
 user="user"                # NAME OF USER (MUST BE LOWERCASE)
 usergroup="wheel"          # GROUP FOR USER (MUST BE LOWERCASE)
+
+desktopenvironment="gnome-minimal"   
+# SELECT DESKTOP ENVIRONMENT, OPTIONS ARE:
+# - gnome                   | Installs the Gnome group package.
+# - gnome-minimal           | Install Gnome with a minimal set of applications
+# - kde                     | Installs KDE plasma packages
+# - custom                  | Set specific desktop packages yourself such as window manager or group not listed
+
 

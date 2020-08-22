@@ -2,43 +2,10 @@
 
 packages=(
     #*********** SYSTEM/DRIVER SETUP ************#
+    'xorg'
+    'xorg-server'
     'linux-lts-headers'         # Headers for LTS Kernel
     'nvidia-lts'                # Nvidia LTS Driver
-
-    #*********** LOGIN MANAGER SETUP ************#
-    'gdm'
-
-    #*********** DESKTOP SETUP ************#
-    'baobab'
-    'eog'
-    'evince'
-    'file-roller'
-    'gnome-calculator'
-    'gnome-characters'
-    'gnome-color-manager'
-    'gnome-control-center'
-    'gnome-disk-utility'
-    'gnome-keyring'
-    'gnome-logs'
-    'gnome-menus'
-    'gnome-session'
-    'gnome-settings-daemon'
-    'gnome-shell'
-    'gnome-shell-extensions'
-    'gnome-system-monitor'
-    'gnome-terminal'
-    'gnome-themes-extra'
-    'gnome-user-docs'
-    'grilo-plugins'
-    'mutter'
-    'nautilus'
-    'networkmanager'
-    'sushi'
-    'tracker'
-    'tracker-miners'
-    'xdg-user-dirs-gtk'
-    'yelp'
-    'gnome-tweaks'              
 
     #*********** SYSTEM TOOLS SETUP ************#
     'mtools'                    # MS-DOS Disk Tools
@@ -105,9 +72,28 @@ packages=(
     'signal-desktop'            # Signal Desktop App
 )
 
+defile=""
+case $desktopenvironment  in
+    "gnome-minimal")
+        defile="resources/gnome-minimal.sh";;
+    "gnome")
+        defile="resources/gnome.sh" ;;
+    "kde")
+        defile="resources/kde.sh" ;;
+    "custom")
+        defile="resources/custom.sh" ;;
+esac
+
+. ./$defile
+
 touch pkgs.txt
+
+for pkg in "${depackages[@]}"; do
+    echo "$pkg" >> pkgs.txt
+done
 for pkg in "${packages[@]}"; do
     echo "$pkg" >> pkgs.txt
 done
+
 sudo pacman -S --noconfirm --needed - < pkgs.txt
 rm -rf pkgs.txt
