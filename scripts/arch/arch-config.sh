@@ -16,7 +16,6 @@ desktopenvironment="gnome-minimal"
 
 ssd='NO'                   # IS DRIVE SSD? YES | NO          
 drive="sda"                # DRIVE NAME
-mnt="/mnt"                 # MOUNT POINT
 efimnt="/boot/efi"         # IF UEFI, EFI MOUNT POINT
 encrypted="NO"             # YES | NO
 encryptedname="cr_root"    # Encrypted drive name
