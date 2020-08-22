@@ -2,7 +2,7 @@
 
 . ./arch-config.sh
 
-pippackages=(
+packages=(
     'selenium'          # Python Library For Web Engine Automation
     'PyQt5'             # Python wrapper of QT UI Library
     'numpy'             # Python Math Library
@@ -12,6 +12,6 @@ pippackages=(
     'pandas'            # Data Anaylsis Tool
 )
 
-for pkg in "${pippackages[@]}"; do
+for pkg in "${packages[@]}"; do
     pip install "$pkg" 
 done

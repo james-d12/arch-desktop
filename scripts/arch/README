@@ -1,0 +1,34 @@
+This installation script currently is quite specific in the setup for the parititions. This aims to 
+be fixed by allowing users to specify in the config file the SWAP, EFI, ROOT, ETC partitions.
+
+
+
+************************************* SUPPORTED LAYOUTS *****************************************
+
+WHERE DRIVE NAME = SDA (SUBSTITUTE SDA FOR YOUR DRIVE NAME)
+
+UEFI: 
+
+/dev/sda1 = EFI Partition
+/dev/sda2 = SWAP Partition 
+/dev/sda3 = ROOT Partition 
+
+UEFI ENCRYPTED:
+
+/dev/sda1 = EFI Partition 
+/dev/sda2 = BOOT Partition 
+/dev/sda3 = ROOT Partition 
+
+SWAP is created within the ROOT partition so that it's contents are encrypted
+
+BIOS: 
+
+/dev/sda1 = SWAP Partition 
+/dev/sda2 = ROOT Partition 
+
+BIOS ENCRYPTED: 
+
+/dev/sda1 = BOOT Partition 
+/dev/sda2 = ROOT Partition 
+
+SWAP is created within the ROOT partition so that it's contents are encrypted
