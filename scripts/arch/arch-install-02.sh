@@ -23,7 +23,6 @@ ln -sf /usr/share/zoneinfo/$region/$city /etc/localtime
 hwclock --systohc
 
 ##************************** Localisation *************************************##
-
 echo -e "${MSGCOLOUR}Configuring localisation...${NC}"
 echo -e "${MSGCOLOUR}Creating backup /etc/locale.gen file at /etc/locale.gen.bak${NC}"
 cp /etc/locale.gen /etc/locale.gen.bak
@@ -45,27 +44,49 @@ passwd
 
 ##************************** Installing Bootloader and NetworkManager *************************************##
 
-echo -e "${MSGCOLOUR}Installing grub bootloader and microcode.....${NC}"
-pacman -S --noconfirm --needed grub efibootmgr networkmanager $microcode
+# BIOS
+if [ $system == "BIOS" ]; then
+    echo -e "${MSGCOLOUR}Installing grub bootloader and microcode.....${NC}"
+    pacman -S --noconfirm --needed grub networkmanager $microcode
+    
+    if [ $encrypted == "YES" ]; then
+        echo -e "${MSGCOLOUR}Configuring GRUB for encrypted install.....${NC}"
+        echo -e "${MSGCOLOUR}Backing up file /etc/default/grub to /etc/default/grub.bak.....${NC}"
+        cp /etc/default/grub /etc/default/grub.bak
+        line='GRUB_CMDLINE_LINUX="cryptdevice=/dev/'"${drive}"'2:'"${encryptedname}"'"'
+        sed -i 's#GRUB_CMDLINE_LINUX=""#'"${line}"'#g' /etc/default/grub
+        echo -e "${MSGCOLOUR}Backing up file /etc/mkinitcpio.conf to /etc/mkinitcpio.conf.bak.....${NC}"
+        sed -i 's/HOOKS=(base udev autodetect modconf block filesystems keyboard fsck)/HOOKS=(base udev autodetect modconf block encrypt filesystems keyboard fsck)/g' /etc/mkinitcpio.conf
+        mkinitcpio -p $kernel
+    fi
 
-if [ $encrypted == "YES" ]; then
-    echo -e "${MSGCOLOUR}Configuring GRUB for encrypted install.....${NC}"
-    echo -e "${MSGCOLOUR}Backing up file /etc/default/grub to /etc/default/grub.bak.....${NC}"
-    cp /etc/default/grub /etc/default/grub.bak
-    line='GRUB_CMDLINE_LINUX="cryptdevice=/dev/'"${drive}"'3:'"${encryptedname}"'"'
-    sed -i 's#GRUB_CMDLINE_LINUX=""#'"${line}"'#g' /etc/default/grub
-    echo -e "${MSGCOLOUR}Backing up file /etc/mkinitcpio.conf to /etc/mkinitcpio.conf.bak.....${NC}"
-    sed -i 's/HOOKS=(base udev autodetect modconf block filesystems keyboard fsck)/HOOKS=(base udev autodetect modconf block encrypt filesystems keyboard fsck)/g' /etc/mkinitcpio.conf
+    grub-install /dev/"${drive}1"
+    grub-mkconfig -o /boot/grub/grub.cfg
     mkinitcpio -p $kernel
+    systemctl enable NetworkManager
+# UEFI
+else
+    echo -e "${MSGCOLOUR}Installing grub bootloader and microcode.....${NC}"
+    pacman -S --noconfirm --needed grub efibootmgr networkmanager $microcode
+
+    if [ $encrypted == "YES" ]; then
+        echo -e "${MSGCOLOUR}Configuring GRUB for encrypted install.....${NC}"
+        echo -e "${MSGCOLOUR}Backing up file /etc/default/grub to /etc/default/grub.bak.....${NC}"
+        cp /etc/default/grub /etc/default/grub.bak
+        line='GRUB_CMDLINE_LINUX="cryptdevice=/dev/'"${drive}"'3:'"${encryptedname}"'"'
+        sed -i 's#GRUB_CMDLINE_LINUX=""#'"${line}"'#g' /etc/default/grub
+        echo -e "${MSGCOLOUR}Backing up file /etc/mkinitcpio.conf to /etc/mkinitcpio.conf.bak.....${NC}"
+        sed -i 's/HOOKS=(base udev autodetect modconf block filesystems keyboard fsck)/HOOKS=(base udev autodetect modconf block encrypt filesystems keyboard fsck)/g' /etc/mkinitcpio.conf
+        mkinitcpio -p $kernel
+    fi
+
+    grub-install --target=x86_64-efi --bootloader-id=GRUB --efi-directory=$efimnt
+    grub-mkconfig -o /boot/grub/grub.cfg
+    mkinitcpio -p $kernel
+    systemctl enable NetworkManager
 fi
 
-grub-install --target=x86_64-efi --bootloader-id=GRUB --efi-directory=$efimnt
-grub-mkconfig -o /boot/grub/grub.cfg
-mkinitcpio -p $kernel
-systemctl enable NetworkManager
-
 ##************************** Adding a User *************************************##
-
 if id "$user" &>/dev/null; then
     echo -e "${MSGCOLOUR}User $user already exists....${NC}"
 else

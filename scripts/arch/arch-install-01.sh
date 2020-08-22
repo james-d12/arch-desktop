@@ -4,20 +4,32 @@
 
 ### This Script is run after partitioning the drive ###
 
-##************************** Network Configuration *************************************##
-
-
 #************************** Formatting and Mounting drives *************************************##
 
 # BIOS SYSTEM
 if [ $system == "BIOS" ]; then
     if [ $encrypted == "YES" ]; then
+        echo -e "${MSGCOLOUR}Setting up cryptsetup...${NC}"
+        modprobe dm-crypt
+        modprobe dm-mod
+        cryptsetup luksFormat -v -s 512 -h sha512 /dev/"${drive}2"
+        cryptsetup open /dev/"${drive}2" $encryptedname
 
+        echo -e "${MSGCOLOUR}Formatting encrypted install partitions...${NC}"
+        mkfs.ext4 -L BOOT /dev/"${drive}1"
+        mkfs.ext4 /dev/mapper/$encryptedname
+
+        echo -e "${MSGCOLOUR}Mounting encrypted install partitions...${NC}"
+        mount /dev/mapper/$encryptedname /mnt
+        mkdir /mnt/boot
+        mount /dev/"${drive}2" /mnt/boot
     else
         echo -e "${MSGCOLOUR}Formatting install partitions...${NC}"
-        mkfs.ext4 -L ROOT /dev/"${drive}1"
+        mkswap -L SWAP /dev/"${drive}1"
+        mkfs.ext4 -L ROOT /dev/"${drive}2"
         
         echo -e "${MSGCOLOUR}Mounting install partitions...${NC}"
+        swapon /dev/"${drive}1"
         mount /dev/"${drive}1" /mnt
     fi
 # UEFI System
@@ -31,7 +43,7 @@ else
 
         echo -e "${MSGCOLOUR}Formatting encrypted install partitions...${NC}"
         mkfs.fat -F32 /dev/"${drive}1"
-        mkfs.ext4 /dev/"${drive}2"
+        mkfs.ext4 -L BOOT /dev/"${drive}2"
         mkfs.ext4 /dev/mapper/$encryptedname
 
         echo -e "${MSGCOLOUR}Mounting encrypted install partitions...${NC}"
@@ -54,7 +66,6 @@ else
         mount /dev/"${drive}1" /mnt$efimnt
     fi
 fi
-
 
 
 #************************** Installing Core Packages *************************************##
