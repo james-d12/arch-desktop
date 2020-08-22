@@ -1,5 +1,7 @@
 #!bin\bash
 
+# Contains a list of AUR packages to install.
+
 . ./arch-config.sh
 
 packages=(

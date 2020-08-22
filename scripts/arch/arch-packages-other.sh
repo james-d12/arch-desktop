@@ -1,5 +1,7 @@
 #!bin\bash
 
+# Contains a list of other packages, such as pip packages, to install.
+
 . ./arch-config.sh
 
 packages=(

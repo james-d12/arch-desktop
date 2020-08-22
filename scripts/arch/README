@@ -1,7 +1,24 @@
+STEPS:
+1. Connect to the internet.
+2. Partition drive in one of the supported layouts.
+3. Edit the 'arch-config.sh' file parameters to match your desired setup.
+4. Edit the '*-packages*.sh' files to add / remove any programs to be installed.
+5. Run 'bash arch-install-01.sh'
+6. Answer any prompts.
+7. After script has finished, reboot machine.
+8. Login to new user account.
+9. A folder 'arch-linux-scripts/' should've been created in the home folder of the new user.
+10. Run the 'arch-install-03.sh' script to install the desktop environment specified in the config
+file and to install the packages in the '*-packages*.sh' files.
+11. Reboot machine. 
+12. If all goes well, you should be greeted with the login manager of your choice. NOTE if no 
+login manager appears it may mean that the login manager you wanted to install did not get 
+it's specific systemd service enabled, for example gdm (gnome's login manager) requires 
+'systemctl enable gdm.service' to be run to enable it to start automatically. Read the appropriate
+arch wiki page concerning your chosen login manager about enabling the service. 
+
 This installation script currently is quite specific in the setup for the parititions. This aims to 
 be fixed by allowing users to specify in the config file the SWAP, EFI, ROOT, ETC partitions.
-
-
 
 ************************************* SUPPORTED LAYOUTS *****************************************
 
