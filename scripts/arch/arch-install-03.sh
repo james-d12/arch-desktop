@@ -8,15 +8,12 @@
 echo -e "${MSGCOLOUR}Running package installation script.....${NC}"
 bash ./arch-packages.sh
 
-if [ "$EUID" -ne 0 ]; then 
-    echo -e "${MSGCOLOUR}Could not install AUR packages running with heightened privileges.....${NC}"
-else
-    echo -e "${MSGCOLOUR}Running AUR package installation script.....${NC}"
-    bash ./arch-packages-aur.sh  
-fi
+echo -e "${MSGCOLOUR}Running AUR package installation script.....${NC}"
+bash ./arch-packages-aur.sh  
 
 echo -e "${MSGCOLOUR}Running pip package installation script.....${NC}"
 bash ./arch-packages-other.sh
+
 export PATH=/home/$user/.local/bin:$PATH
 
 ##************************** Enable Systemd Services *************************************##
@@ -80,9 +77,8 @@ fi
 echo "listening ports"
 sudo netstat -tunlp
 
-
 ##************************** Performance Improvements ******************************##
-sudo echo "vm.swappiness=10" >> /etc/sysctl.d/99-swappiness.conf      
+sudo echo "vm.swappiness=10" >> sudo /etc/sysctl.d/99-swappiness.conf      
 
 ##************************** SSD Performance Improvements ******************************##
 
