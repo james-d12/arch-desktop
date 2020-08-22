@@ -1,5 +1,7 @@
 #!bin\bash
 
+### This Script is run when chrooting into the mount point ###
+
 . /arch-install-scripts/arch-config.sh
 
 ##************************** Encrypted Install - Add SWAP ******************************##

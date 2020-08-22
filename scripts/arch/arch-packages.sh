@@ -41,9 +41,10 @@ packages=(
     'gnome-tweaks'              
 
     #*********** SYSTEM TOOLS SETUP ************#
-    'mtools'
-    'dosfstools'
+    'mtools'                    # MS-DOS Disk Tools
+    'dosfstools'                # DOS Filesystem Utilities
     'os-prober'                 # Detects other OSs
+    'ntfs-3g'                   # Mount and interact with NTFS drives.
     'make'                      # Linux Build Tool
     'cmake'                     # Build Tool
     'git'                       # Software Management
@@ -53,6 +54,15 @@ packages=(
     'hwinfo'                    # Hardware CLI tool
     'htop'                      # CLI Task Manager
     'dmidecode'                 # Interface For Memory
+    'iputils'                   # Network Tools
+    'traceroute'                # Packet Route Tracking
+    'fdisk'                     # CLI Disk Partition
+    'cfdisk'                    # Curses Graphical Fdisk Client
+    'parted'                    # Terminal Partitioning Tool
+    'hdparm'                    # Used For Getting Disk Speeds
+    'lm_sensors'                # Used For Getting Temperature Readings
+    'feh'                       # CLI Image Tool
+    'ffmpeg'                    # CLI Audio Tool
 
     #*********** PROGRAMMING LANGUAGE / DEVELOPMENT TOOLS SETUP ************#
     'nasm'                      # Assembler
@@ -78,12 +88,13 @@ packages=(
 
     #*********** APPLICATIONS SETUP ************#
     'firefox'                   # Firefox Browser
-    'chromium'                  # Chromium Browser
     'code'                      # VSCode Editor 
+    'neovim'                    # Neo Vim - More plugin Support
     'discord'                   # Communication
     'vlc'                       # Music and Video Player
     'obs-studio'                # Recording and Streaming
     'gimp'                      # Image Editor
+    'zathura'                   # PDF Reader
     'flameshot'                 # Screenshot software
     'feedreader'                # RSS Reader
     'youtube-dl'                # Youtube Downloader CL Program

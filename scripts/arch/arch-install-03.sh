@@ -52,13 +52,39 @@ if sudo pacman -Qs ufw > /dev/null; then
     sudo ufw enable
 fi
 
-##************************** Performance Improvements ******************************##
-sudo echo "vm.swappiness=10" >> /etc/sysctl.d/99-swappiness.conf
+if sudo pacman -Qs sysctl > /dev/null; then
+    sudo sysctl kernel.modules_disabled=1
+    sudo sysctl -a
+    sudo sysctl -A
+    sudo sysctl mib
+    sudo sysctl net.ipv4.conf.all.rp_filter
+    sudo sysctl -a --pattern 'net.ipv4.conf.(eth|wlan)0.arp'
+fi
 
+cat <<EOF > /etc/host.conf
+order bind,hosts
+multi on
+EOF
+
+if sudo pacman -Qs fail2ban > /dev/null; then
+    sudo cp fail2ban.local /etc/fail2ban/
+    sudo systemctl enable fail2ban
+    sudo systemctl start fail2ban
+fi
+
+echo "listening ports"
+sudo netstat -tunlp
+
+
+##************************** Performance Improvements ******************************##
+sudo echo "vm.swappiness=10" >> /etc/sysctl.d/99-swappiness.conf      
 
 ##************************** SSD Performance Improvements ******************************##
-sudo pacman -S --needed --noconfirm util-linux 
-sudo systemctl enable fstrim.timer
+
+if [ $ssd == "YES" ]; then
+    sudo pacman -S --needed --noconfirm util-linux 
+    sudo systemctl enable fstrim.timer
+fi
 
 ##************************** Finish and Cleanup ******************************##
 reboot

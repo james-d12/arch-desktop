@@ -1,12 +1,13 @@
 #!bin\bash
 
 packages=(
-    'gconf' 
-    'gnome-terminal-transparency' 
-    'bitwarden-bin' 
-    'godot'
-    'zeal-git'
-    'unity-editor-lts'
+    'gconf'                         # Utility
+    'gnome-terminal-transparency'   # Gnome-Terminal With Transparency Support
+    'bitwarden-bin'                 # Password Manager
+    'brave-bin'                     # Privacy Focused Web Browser
+    'godot'                         # Lightweight Game-Engine
+    'unity-editor-lts'              # Unity3D Engine
+    'zeal-git'                      # Offline Documentation Viewer
 )
 
 touch pkgs.txt

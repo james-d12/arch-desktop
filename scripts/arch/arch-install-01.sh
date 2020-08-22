@@ -2,6 +2,7 @@
 
 . ./arch-config.sh
 
+### This Script is run after partitioning the drive ###
 
 ##************************** Network Configuration *************************************##
 
