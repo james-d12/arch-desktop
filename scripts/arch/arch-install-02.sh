@@ -1,7 +1,5 @@
 #!bin\bash
 
-### This Script is run when chrooting into the mount point ###
-
 . /arch-install-scripts/arch-config.sh
 
 ##************************** Encrypted Install - Add SWAP ******************************##
@@ -58,9 +56,13 @@ if [ $system == "BIOS" ]; then
         echo -e "${MSGCOLOUR}Backing up file /etc/mkinitcpio.conf to /etc/mkinitcpio.conf.bak.....${NC}"
         sed -i 's/HOOKS=(base udev autodetect modconf block filesystems keyboard fsck)/HOOKS=(base udev autodetect modconf block encrypt filesystems keyboard fsck)/g' /etc/mkinitcpio.conf
         mkinitcpio -p $kernel
-    fi
 
-    grub-install /dev/"${drive}1"
+        grub-install /dev/"${drive}1"
+
+    else
+        grub-install /dev/"${drive}2"
+    fi
+    
     grub-mkconfig -o /boot/grub/grub.cfg
     mkinitcpio -p $kernel
     systemctl enable NetworkManager

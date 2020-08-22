@@ -2,8 +2,6 @@
 
 . ./arch-config.sh
 
-### This Script is run after partitioning the drive ###
-
 #************************** Formatting and Mounting drives *************************************##
 
 # BIOS SYSTEM
