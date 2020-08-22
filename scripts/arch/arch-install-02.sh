@@ -77,6 +77,6 @@ fi
 
 ##************************** Finish Installation and Cleanup *************************************##
 echo -e "${MSGCOLOUR}Script Finished....${NC}"
-cp /arch-install-scripts/ /home/$user/
+cp -r /arch-install-scripts/ /home/$user/
 sudo chmod 700 /home/$user/arch-install-scripts
 sudo chown user:wheel /home/$user/arch-install-scripts/

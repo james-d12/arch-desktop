@@ -1,5 +1,7 @@
 #!bin\bash
 
+. ./arch-config.sh
+
 packages=(
     #*********** SYSTEM/DRIVER SETUP ************#
     'xorg'

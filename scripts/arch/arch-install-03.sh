@@ -1,5 +1,7 @@
 #!bin\bash
 
+. ./arch-config.sh
+
 ### This Script is run on reboot as user NOT ROOT ###
 
 ##************************** Installing Application Packages *************************************##

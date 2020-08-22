@@ -1,5 +1,7 @@
 #!bin\bash
 
+. ./arch-config.sh
+
 pippackages=(
     'selenium'          # Python Library For Web Engine Automation
     'PyQt5'             # Python wrapper of QT UI Library

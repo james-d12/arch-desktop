@@ -1,5 +1,7 @@
 #!bin\bash
 
+. ./arch-config.sh
+
 if ! pacman -Qs yay > /dev/null; then
     mkdir -p temp
     cd temp

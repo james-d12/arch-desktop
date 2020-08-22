@@ -51,7 +51,7 @@ genfstab -U $mnt >> $mnt/etc/fstab
 
 echo -e "${MSGCOLOUR}Copying scripts to $mnt point....${NC}"
 mkdir -p $mnt/arch-install-scripts/
-cp * $mnt/arch-install-scripts/
+cp -r * $mnt/arch-install-scripts/
 
 ##************************** chroot *************************************##
 echo -e "${MSGCOLOUR}Chrooting into $mnt point....${NC}"
