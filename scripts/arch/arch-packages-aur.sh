@@ -1,5 +1,13 @@
 #!bin\bash
 
+if ! pacman -Qs yay > /dev/null; then
+    mkdir -p temp
+    cd temp
+    git clone https://aur.archlinux.org/yay.git
+    cd yay 
+    makepkg -si
+fi
+
 packages=(
     'gconf'                         # Utility
     'gnome-terminal-transparency'   # Gnome-Terminal With Transparency Support

@@ -1,5 +1,7 @@
 #!bin\bash
 
+### This Script is run on reboot as user NOT ROOT ###
+
 ##************************** Installing Application Packages *************************************##
 echo -e "${MSGCOLOUR}Running package installation script.....${NC}"
 bash ./arch-packages.sh
