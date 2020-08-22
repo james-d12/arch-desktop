@@ -38,7 +38,11 @@ echo "$host" >> /etc/hosts
 
 ##************************** Setting root password *************************************##
 echo -e "${MSGCOLOUR}Setting root password.....${NC}"
-passwd
+until passwd
+do
+    echo "Try setting root password again."
+    sleep 2
+done
 
 ##************************** Installing Bootloader and NetworkManager *************************************##
 
@@ -94,7 +98,11 @@ if id "$user" &>/dev/null; then
 else
     echo -e "${MSGCOLOUR}Creating the user $user for group $usergroup.....${NC}"
     useradd -m -G $usergroup $user 
-    passwd $user
+    until passwd $user
+    do
+        echo "Try setting user password again."
+        sleep 2
+    done
     echo "$user ALL=(ALL) ALL" >> /etc/sudoers
 fi
 
