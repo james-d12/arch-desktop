@@ -30,7 +30,7 @@ if [ $system == "BIOS" ]; then
         
         echo -e "${MSGCOLOUR}Mounting install partitions...${NC}"
         swapon /dev/"${drive}1"
-        mount /dev/"${drive}1" /mnt
+        mount /dev/"${drive}2" /mnt
     fi
 # UEFI System
 else 
