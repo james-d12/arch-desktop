@@ -56,8 +56,6 @@ packages=(
     'dmidecode'                 # Interface For Memory
     'iputils'                   # Network Tools
     'traceroute'                # Packet Route Tracking
-    'fdisk'                     # CLI Disk Partition
-    'cfdisk'                    # Curses Graphical Fdisk Client
     'parted'                    # Terminal Partitioning Tool
     'hdparm'                    # Used For Getting Disk Speeds
     'lm_sensors'                # Used For Getting Temperature Readings

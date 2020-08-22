@@ -15,6 +15,7 @@ fi
 
 echo -e "${MSGCOLOUR}Running pip package installation script.....${NC}"
 bash ./arch-packages-other.sh
+export PATH=/home/$user/.local/bin:$PATH
 
 ##************************** Enable Systemd Services *************************************##
 echo -e "${MSGCOLOUR}Enabling systemd services....${NC}"
@@ -87,6 +88,3 @@ if [ $ssd == "YES" ]; then
     sudo pacman -S --needed --noconfirm util-linux 
     sudo systemctl enable fstrim.timer
 fi
-
-##************************** Finish and Cleanup ******************************##
-reboot
