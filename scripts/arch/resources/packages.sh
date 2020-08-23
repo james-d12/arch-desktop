@@ -32,6 +32,7 @@ packages=(
     'lm_sensors'                # Used For Getting Temperature Readings
     'feh'                       # CLI Image Tool
     'ffmpeg'                    # CLI Audio Tool
+    'mlocate'                   # File/Folder location CLI Tool
 
     #*********** PROGRAMMING LANGUAGE / DEVELOPMENT TOOLS SETUP ************#
     'nasm'                      # Assembler

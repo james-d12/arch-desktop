@@ -7,7 +7,7 @@ if [ $encrypted == "YES" ]; then
     echo -e "${MSGCOLOUR}Adding encrypted SWAP file....${NC}"
     dd if=/dev/zero of=/swapfile bs=1M count=$encryptedswapsize status=progress
     chmod 600 /swapfile
-    mkswap /swapfile
+    mkswap -L SWAP /swapfile
     swapon /swapfile
     echo -e "${MSGCOLOUR}Backing up /etc/fstab to /etc/fstab.bak....${NC}"
     cp /etc/fstab /etc/fstab.bak

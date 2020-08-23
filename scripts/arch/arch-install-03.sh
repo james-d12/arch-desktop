@@ -69,8 +69,8 @@ if sudo pacman -Qs ufw > /dev/null; then
     sudo ufw default deny
     sudo ufw default deny incoming  
     sudo ufw default allow outgoing
-    sudo allow from 192.168.0.0/24
-    sudo allow Deluge
+    sudo ufw allow from 192.168.0.0/24
+    sudo ufw allow Deluge
     sudo ufw enable
 fi
 
