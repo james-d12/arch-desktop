@@ -11,31 +11,36 @@ bash ./arch-packages.sh
 echo -e "${MSGCOLOUR}Running AUR package installation script.....${NC}"
 bash ./arch-packages-aur.sh
 
+export PATH=/home/$user/.local/bin:$PATH
 echo -e "${MSGCOLOUR}Running pip package installation script.....${NC}"
 bash ./arch-packages-other.sh
 
-export PATH=/home/$user/.local/bin:$PATH
 
 ##************************** Enable Systemd Services *************************************##
 echo -e "${MSGCOLOUR}Enabling systemd services....${NC}"
 
 if sudo pacman -Qs gdm > /dev/null ; then
+echo -e "${MSGCOLOUR}Enabling gdm systemd service....${NC}"
     systemctl enable gdm.service
 fi
 
 if sudo pacman -Qs lightdm > /dev/null ; then
+echo -e "${MSGCOLOUR}Enabling lightdm systemd service....${NC}"
     systemctl enable lightdm.service
 fi
 
 if sudo pacman -Qs networkmanager > /dev/null ; then
+echo -e "${MSGCOLOUR}Enabling networkmanager systemd service....${NC}"
     systemctl enable NetworkManager.service
 fi
 
 if sudo pacman -Qs ufw > /dev/null; then 
+echo -e "${MSGCOLOUR}Enabling ufw systemd service....${NC}"
     systemctl enable ufw.service
 fi
 
 if sudo pacman -Qs apparmor > /dev/null; then 
+echo -e "${MSGCOLOUR}Enabling apparmor systemd service....${NC}"
     systemctl enable apparmor.service
 fi
 
@@ -80,11 +85,11 @@ if sudo pacman -Qs netstat-nat > /dev/null; then
 fi
 
 ##************************** Performance Improvements ******************************##
+sudo touch /etc/sysctl.d/99-swappiness.conf     
 sudo echo "vm.swappiness=10" >> /etc/sysctl.d/99-swappiness.conf      
 
 ##************************** SSD Performance Improvements ******************************##
 
 if [ $ssd == "YES" ]; then
-    sudo pacman -S --needed --noconfirm util-linux 
     sudo systemctl enable fstrim.timer
 fi
