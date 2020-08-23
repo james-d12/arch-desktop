@@ -97,6 +97,7 @@ packages=(
 
 packagesaur=(
     'yaru-icon-theme'               # Unity Icon Themeset
+    'breeze-obsidian-cursor-theme'  # Obsidian Cursor Theme
     'gconf'                         # Utility
     'protonvpn-cli-ng'              # CLI For ProtonVPN
     'timeshift'                     # Backup Tool
