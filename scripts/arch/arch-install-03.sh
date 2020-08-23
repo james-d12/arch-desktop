@@ -22,15 +22,19 @@ fi
 yay -S --noconfirm --needed ${packagesaur[@]}
 
 ##************************** Installing PIP Packages *************************************##
-export PATH=/home/$user/.local/bin:$PATH
-echo -e "${MSGCOLOUR}Installing PIP packages.....${NC}"
-pip install ${packagespip[@]}
+if sudo pacman -Qs code > /dev/null ; then
+    export PATH=/home/$user/.local/bin:$PATH
+    echo -e "${MSGCOLOUR}Installing PIP packages.....${NC}"
+    pip install ${packagespip[@]}
+fi
 
 ##************************** Installing VSCODE Extensions *************************************##
-echo -e "${MSGCOLOUR}Installing VSCode extensions.....${NC}"
-for ext in ${extensionscode[@]}; do 
-    code --install-extension $ext
-done
+if sudo pacman -Qs code > /dev/null ; then
+    echo -e "${MSGCOLOUR}Installing VSCode extensions.....${NC}"
+    for ext in ${extensionscode[@]}; do 
+        code --install-extension $ext
+    done
+fi
 
 ##************************** Enable Systemd Services *************************************##
 echo -e "${MSGCOLOUR}Enabling systemd services....${NC}"
