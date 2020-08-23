@@ -40,6 +40,11 @@ if sudo pacman -Qs lightdm > /dev/null ; then
     systemctl enable lightdm.service
 fi
 
+if sudo pacman -Qs sddm > /dev/null ; then
+    echo -e "${MSGCOLOUR}Enabling sddm systemd service....${NC}"
+    systemctl enable sddm.service
+fi
+
 if sudo pacman -Qs networkmanager > /dev/null ; then
     echo -e "${MSGCOLOUR}Enabling networkmanager systemd service....${NC}"
     systemctl enable NetworkManager.service
