@@ -1,19 +1,30 @@
 #!bin\bash
 
 . ./arch-config.sh
+. resources/packages.sh
 
 ### This Script is run on reboot as user NOT ROOT ###
 
-##************************** Installing Application Packages *************************************##
+##************************** Installing Packages *************************************##
 echo -e "${MSGCOLOUR}Running package installation script.....${NC}"
-bash ./arch-packages.sh
+defile="resources/${desktopenvironment}.sh"
+. ./$defile
+sudo pacman -S --noconfirm --needed ${depackages[@]}
+sudo pacman -S --noconfirm --needed ${packages[@]}
 
-echo -e "${MSGCOLOUR}Running AUR package installation script.....${NC}"
-bash ./arch-packages-aur.sh
+##************************** Installing AUR Packages *************************************##
+echo -e "${MSGCOLOUR}Installing AUR packages.....${NC}"
+if ! pacman -Qs yay > /dev/null; then
+    git clone https://aur.archlinux.org/yay.git
+    cd yay 
+    makepkg -si
+fi
+yay -S --noconfirm --needed ${packages-aur[@]}
 
+##************************** Installing PIP Packages *************************************##
 export PATH=/home/$user/.local/bin:$PATH
-echo -e "${MSGCOLOUR}Running pip package installation script.....${NC}"
-bash ./arch-packages-other.sh
+echo -e "${MSGCOLOUR}Installing PIP packages.....${NC}"
+pip install ${packages-pip[@]}
 
 
 ##************************** Enable Systemd Services *************************************##
@@ -85,9 +96,10 @@ if sudo pacman -Qs netstat-nat > /dev/null; then
 fi
 
 ##************************** Performance Improvements ******************************##
-sudo touch /etc/sysctl.d/99-swappiness.conf     
-sudo echo "vm.swappiness=10" >> /etc/sysctl.d/99-swappiness.conf      
 
+su -c touch /etc/sysctl.d/99-swappiness.conf  
+su -c echo "vm.swappiness=10" >> /etc/sysctl.d/99-swappiness.conf      
+    
 ##************************** SSD Performance Improvements ******************************##
 
 if [ $ssd == "YES" ]; then

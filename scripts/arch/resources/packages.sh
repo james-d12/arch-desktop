@@ -2,8 +2,6 @@
 
 # Contains a list of packages to install.
 
-. ./arch-config.sh
-
 packages=(
     #*********** SYSTEM/DRIVER SETUP ************#
     'xorg'
@@ -79,19 +77,21 @@ packages=(
     'signal-desktop'            # Signal Desktop App
 )
 
-defile=""
-case $desktopenvironment  in
-    "gnome-minimal")
-        defile="resources/gnome-minimal.sh";;
-    "gnome")
-        defile="resources/gnome.sh" ;;
-    "kde")
-        defile="resources/kde.sh" ;;
-    "custom")
-        defile="resources/custom.sh" ;;
-esac
+packages-aur=(
+    'gconf'                         # Utility
+    'bitwarden-bin'                 # Password Manager
+    'brave-bin'                     # Privacy Focused Web Browser
+    'godot'                         # Lightweight Game-Engine
+    'unity-editor-lts'              # Unity3D Engine
+    'zeal-git'                      # Offline Documentation Viewer
+)
 
-. ./$defile
-
-sudo pacman -S --noconfirm --needed ${depackages[@]}
-sudo pacman -S --noconfirm --needed ${packages[@]}
+packages-pip=(
+    'selenium'          # Python Library For Web Engine Automation
+    'PyQt5'             # Python wrapper of QT UI Library
+    'numpy'             # Python Math Library
+    'matplotlib'        # Python Graph Plotting Library
+    'gym'               # Comparing reinforcement learning algorithms.
+    'opencv-python'     # Library for Real Time Applications
+    'pandas'            # Data Anaylsis Tool
+)
