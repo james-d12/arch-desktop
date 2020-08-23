@@ -35,6 +35,14 @@ packages=(
     'feh'                       # CLI Image Tool
     'ffmpeg'                    # CLI Audio Tool
     'mlocate'                   # File/Folder location CLI Tool
+    'udisks2'                   # Storage Device Daemon
+    'udiskie'                   # Auto Mounter With Support For LUKS
+    'bzip2'                     # Unpack .bz2,bz,tbz2,tbz Files
+    'gzip'                      # Unpack .gz,.z,.tgz,.taz Files
+    'unzip'                     # Unpack .zip files
+    'p7zip'                     # Unpack .7z Files
+    'unrar'                     # Unpack .rar Files
+    'unarchiver'                # Overall CLI Unpacker Tool
 
     #*********** PROGRAMMING LANGUAGE / DEVELOPMENT TOOLS SETUP ************#
     'nasm'                      # Assembler
