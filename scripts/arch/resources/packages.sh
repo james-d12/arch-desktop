@@ -6,6 +6,7 @@ packages=(
     #*********** SYSTEM/DRIVER SETUP ************#
     'xorg'
     'xorg-server'
+    'xorg-xinit'
     'linux-lts-headers'         # Headers for LTS Kernel
     'nvidia-lts'                # Nvidia LTS Driver
 

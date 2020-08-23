@@ -1,6 +1,5 @@
 #!bin\bash
 
-
 #**************************** Parameters ************************#
 
 ## Desktop Environment Parameters
@@ -10,6 +9,7 @@ desktopenvironment="gnome-minimal"
 # - gnome                   | Installs the Gnome group package.
 # - gnome-minimal           | Install Gnome with a minimal set of applications
 # - kde                     | Installs KDE plasma packages
+# - xfce                    | Installs XFCE DE and packages.
 
 ## Drive Parameters
 
