@@ -48,6 +48,8 @@ packages=(
     'dotnet-sdk'                # .NET SDK
     'mono'                      # Mono For C#
     'python-pip'                # Python3 PIP
+    'glfw'                      # OpenGL Library
+    'glew'                      # OpenGL Library
 
     #*********** UTILITY APPLICATIONS SETUP ************#
     'ufw'                       # Firewall
