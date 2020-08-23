@@ -31,32 +31,31 @@ pip install ${packages-pip[@]}
 echo -e "${MSGCOLOUR}Enabling systemd services....${NC}"
 
 if sudo pacman -Qs gdm > /dev/null ; then
-echo -e "${MSGCOLOUR}Enabling gdm systemd service....${NC}"
+    echo -e "${MSGCOLOUR}Enabling gdm systemd service....${NC}"
     systemctl enable gdm.service
 fi
 
 if sudo pacman -Qs lightdm > /dev/null ; then
-echo -e "${MSGCOLOUR}Enabling lightdm systemd service....${NC}"
+    echo -e "${MSGCOLOUR}Enabling lightdm systemd service....${NC}"
     systemctl enable lightdm.service
 fi
 
 if sudo pacman -Qs networkmanager > /dev/null ; then
-echo -e "${MSGCOLOUR}Enabling networkmanager systemd service....${NC}"
+    echo -e "${MSGCOLOUR}Enabling networkmanager systemd service....${NC}"
     systemctl enable NetworkManager.service
 fi
 
 if sudo pacman -Qs ufw > /dev/null; then 
-echo -e "${MSGCOLOUR}Enabling ufw systemd service....${NC}"
+    echo -e "${MSGCOLOUR}Enabling ufw systemd service....${NC}"
     systemctl enable ufw.service
 fi
 
 if sudo pacman -Qs apparmor > /dev/null; then 
-echo -e "${MSGCOLOUR}Enabling apparmor systemd service....${NC}"
+    echo -e "${MSGCOLOUR}Enabling apparmor systemd service....${NC}"
     systemctl enable apparmor.service
 fi
 
-##************************** Network Security Configuration ******************************##
-
+##************************** Enabling and hardening UFW ******************************##
 if sudo pacman -Qs ufw > /dev/null; then
     sudo ufw limit 22/tcp  
     sudo ufw limit ssh
@@ -70,6 +69,7 @@ if sudo pacman -Qs ufw > /dev/null; then
     sudo ufw enable
 fi
 
+##************************** Hardening Sysctl ******************************##
 if sudo pacman -Qs sysctl > /dev/null; then
     sudo sysctl kernel.modules_disabled=1
     sudo sysctl -a
@@ -79,18 +79,15 @@ if sudo pacman -Qs sysctl > /dev/null; then
     sudo sysctl -a --pattern 'net.ipv4.conf.(eth|wlan)0.arp'
 fi
 
-sudo cat <<EOF > /etc/host.conf
-order bind,hosts
-multi on
-EOF
-
+##************************** Enabling fail2ban ******************************##
 if sudo pacman -Qs fail2ban > /dev/null; then
     sudo cp fail2ban.local /etc/fail2ban/
     sudo systemctl enable fail2ban
     sudo systemctl start fail2ban
 fi
 
-if sudo pacman -Qs netstat-nat > /dev/null; then
+##************************** Activating Netstat ******************************##
+if sudo pacman -Qs iproute2 > /dev/null; then
     echo "listening ports"
     sudo netstat -tunlp
 fi

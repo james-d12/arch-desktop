@@ -25,6 +25,7 @@ packages=(
     'dmidecode'                 # Interface For Memory
     'iputils'                   # Network Tools
     'traceroute'                # Packet Route Tracking
+    'iproute2'                  # Contains Network Tools
     'fail2ban'                  # IP Banner
     'parted'                    # Terminal Partitioning Tool
     'hdparm'                    # Used For Getting Disk Speeds
