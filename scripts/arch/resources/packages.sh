@@ -8,6 +8,7 @@ packages=(
     'xorg-server'
     'xorg-xinit'
     'linux-lts-headers'         # Headers for LTS Kernel
+    'linux-hardened'            # Extra Security Kernel
     'nvidia-lts'                # Nvidia LTS Driver
 
     #*********** SYSTEM TOOLS SETUP ************#

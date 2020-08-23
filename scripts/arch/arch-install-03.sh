@@ -19,7 +19,7 @@ if ! pacman -Qs yay > /dev/null; then
     cd yay 
     makepkg -si
 fi
-yay -S --noconfirm --needed ${packagesaur[@]}
+yay -S --batchinstall --cleanafter --noconfirm --needed ${packagesaur[@]}
 
 ##************************** Installing PIP Packages *************************************##
 if sudo pacman -Qs code > /dev/null ; then
@@ -68,4 +68,3 @@ if sudo pacman -Qs apparmor > /dev/null; then
     echo -e "${MSGCOLOUR}Enabling apparmor systemd service....${NC}"
     systemctl enable apparmor.service
 fi
-
