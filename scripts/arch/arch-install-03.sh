@@ -19,13 +19,18 @@ if ! pacman -Qs yay > /dev/null; then
     cd yay 
     makepkg -si
 fi
-yay -S --noconfirm --needed ${packages-aur[@]}
+yay -S --noconfirm --needed ${packagesaur[@]}
 
 ##************************** Installing PIP Packages *************************************##
 export PATH=/home/$user/.local/bin:$PATH
 echo -e "${MSGCOLOUR}Installing PIP packages.....${NC}"
-pip install ${packages-pip[@]}
+pip install ${packagespip[@]}
 
+##************************** Installing VSCODE Extensions *************************************##
+echo -e "${MSGCOLOUR}Installing VSCode extensions.....${NC}"
+for ext in ${extensionscode[@]}; do 
+    code --install-extension $ext
+done
 
 ##************************** Enable Systemd Services *************************************##
 echo -e "${MSGCOLOUR}Enabling systemd services....${NC}"

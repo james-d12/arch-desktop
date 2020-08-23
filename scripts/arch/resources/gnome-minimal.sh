@@ -32,4 +32,5 @@ depackages=(
     'xdg-user-dirs-gtk'
     'yelp'
     'gnome-tweaks'   
+    'chrome-gnome-shell'
 )

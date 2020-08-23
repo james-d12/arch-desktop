@@ -62,11 +62,17 @@ packages=(
     'glew'                      # OpenGL Library
 
     #*********** UTILITY APPLICATIONS SETUP ************#
+    'openvpn'                   # For VPN Connections
     'ufw'                       # Firewall
     'apparmor'                  # Security Software
     'firejail'                  # Sandboxing Software
     'grub-customizer'           # Grub Configuration
     'gparted'                   # Disk Manager
+
+    #*********** FONTS SETUP ************#
+    'ttf-liberation'            # Free Compatible Versions Like Arial Fonts
+    'ttf-ubuntu-font-family'    # Adds Ubuntu Fonts
+    'ttf-roboto'                # Adds Roboto Fonts
 
     #*********** APPLICATIONS SETUP ************#
     'firefox'                   # Firefox Browser
@@ -89,17 +95,19 @@ packages=(
     'signal-desktop'            # Signal Desktop App
 )
 
-packages-aur=(
+packagesaur=(
+    'yaru-icon-theme'               # Unity Icon Themeset
     'gconf'                         # Utility
+    'protonvpn-cli-ng'              # CLI For ProtonVPN
     'timeshift'                     # Backup Tool
     'bitwarden-bin'                 # Password Manager
     'brave-bin'                     # Privacy Focused Web Browser
     'godot'                         # Lightweight Game-Engine
-    'unity-editor-lts'              # Unity3D Engine
+    'unityhub'                      # Unity3D Engine
     'zeal-git'                      # Offline Documentation Viewer
 )
 
-packages-pip=(
+packagespip=(   
     'selenium'          # Python Library For Web Engine Automation
     'PyQt5'             # Python wrapper of QT UI Library
     'numpy'             # Python Math Library
@@ -107,4 +115,18 @@ packages-pip=(
     'gym'               # Comparing reinforcement learning algorithms.
     'opencv-python'     # Library for Real Time Applications
     'pandas'            # Data Anaylsis Tool
+)
+
+extensionscode=(
+    'github.vscode-pull-request-github'
+    'ms-python.python'
+    'ms-vscode.cpptools'
+    'ms-dotnettools.csharp'
+    'visualstudioexptteam.vscodeintellicode'
+    'be5invis.vscode-icontheme-nomo-dark'
+    'andradei.minimal-colors'
+    'rust-lang.rust'
+    'twxs.cmake'
+    'alefragnani.project-manager'
+    'alefragnani.bookmarks'
 )
