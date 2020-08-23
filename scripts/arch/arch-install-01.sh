@@ -23,13 +23,13 @@ if [ $system == "BIOS" ]; then
         mount /dev/"${drive}2" /mnt/boot
     else
         echo -e "${MSGCOLOUR}Formatting install partitions...${NC}"
-        mkswap -L SWAP /dev/"${drive}2"
         mkfs.ext4 -L BOOT /dev/"${drive}1"
+        mkswap -L SWAP /dev/"${drive}2"
         mkfs.ext4 -L ROOT /dev/"${drive}2"
         
         echo -e "${MSGCOLOUR}Mounting install partitions...${NC}"
-        swapon /dev/"${drive}1"
-        mount /dev/"${drive}2" /mnt
+        swapon /dev/"${drive}2"
+        mount /dev/"${drive}3" /mnt
         mkdir -p /mnt/boot 
         mount /dev/"${drive}1" /mnt/boot 
     fi
