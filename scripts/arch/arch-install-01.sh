@@ -25,7 +25,7 @@ if [ $system == "BIOS" ]; then
         echo -e "${MSGCOLOUR}Formatting install partitions...${NC}"
         mkfs.ext4 -L BOOT /dev/"${drive}1"
         mkswap -L SWAP /dev/"${drive}2"
-        mkfs.ext4 -L ROOT /dev/"${drive}2"
+        mkfs.ext4 -L ROOT /dev/"${drive}3"
         
         echo -e "${MSGCOLOUR}Mounting install partitions...${NC}"
         swapon /dev/"${drive}2"

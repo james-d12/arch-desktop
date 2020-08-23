@@ -12,6 +12,7 @@ packages=(
 
     #*********** SYSTEM TOOLS SETUP ************#
     'mtools'                    # MS-DOS Disk Tools
+    'cronie'                    # Run Services At Specific Times
     'dosfstools'                # DOS Filesystem Utilities
     'os-prober'                 # Detects other OSs
     'ntfs-3g'                   # Mount and interact with NTFS drives.
@@ -82,6 +83,7 @@ packages=(
 
 packages-aur=(
     'gconf'                         # Utility
+    'timeshift'                     # Backup Tool
     'bitwarden-bin'                 # Password Manager
     'brave-bin'                     # Privacy Focused Web Browser
     'godot'                         # Lightweight Game-Engine
