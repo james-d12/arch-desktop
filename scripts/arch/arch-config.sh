@@ -10,7 +10,6 @@ desktopenvironment="gnome-minimal"
 # - gnome                   | Installs the Gnome group package.
 # - gnome-minimal           | Install Gnome with a minimal set of applications
 # - kde                     | Installs KDE plasma packages
-# - custom                  | Set specific desktop packages yourself such as window manager or group not listed
 
 ## Drive Parameters
 
