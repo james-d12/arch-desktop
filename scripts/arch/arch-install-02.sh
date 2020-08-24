@@ -62,10 +62,10 @@ if [ $system == "BIOS" ]; then
         mkinitcpio -p $kernel
         grub-install /dev/"${drive}1"
     else
-        grub-install --target=1386-pc /dev/"${drive}"
+        grub-install --target=i386-pc /dev/"${drive}"
     fi
     
-    grub-mkconfig -o /boot/grub/grub.cfg
+    grub-mkconfig -o /boot/grub/grub.cfg    
     mkinitcpio -p $kernel
     systemctl enable NetworkManager
 # UEFI

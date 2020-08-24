@@ -40,9 +40,8 @@ SWAP is created within the ROOT partition so that it's contents are encrypted
 
 BIOS: 
 
-/dev/sda1 = BOOT partition
-/dev/sda2 = SWAP Partition 
-/dev/sda3 = ROOT Partition 
+/dev/sda1 = SWAP Partition 
+/dev/sda2 = ROOT Partition 
 
 BIOS ENCRYPTED: 
 
