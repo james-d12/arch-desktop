@@ -49,7 +49,8 @@ done
 # BIOS
 if [ $system == "BIOS" ]; then
     echo -e "${MSGCOLOUR}Installing grub bootloader and microcode.....${NC}"
-    pacman -S --noconfirm --needed grub networkmanager $microcode
+    pacman -S --noconfirm --needed grub networkmanager $microcode os-prober
+    os-prober
     
     if [ $encrypted == "YES" ]; then
         echo -e "${MSGCOLOUR}Configuring GRUB for encrypted install.....${NC}"
@@ -71,7 +72,8 @@ if [ $system == "BIOS" ]; then
 # UEFI
 else
     echo -e "${MSGCOLOUR}Installing grub bootloader and microcode.....${NC}"
-    pacman -S --noconfirm --needed grub efibootmgr networkmanager $microcode
+    pacman -S --noconfirm --needed grub efibootmgr networkmanager $microcode os-prober 
+    os-prober
 
     if [ $encrypted == "YES" ]; then
         echo -e "${MSGCOLOUR}Configuring GRUB for encrypted install.....${NC}"
