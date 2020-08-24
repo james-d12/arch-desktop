@@ -10,6 +10,7 @@ desktopenvironment="gnome-minimal"
 # - gnome-minimal           | Install Gnome with a minimal set of applications
 # - kde                     | Installs KDE plasma packages
 # - xfce                    | Installs XFCE DE and packages.
+# - custom                  | Installs custom DE and packages
 
 ## Drive Parameters
 
