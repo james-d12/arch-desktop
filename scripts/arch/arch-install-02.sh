@@ -50,7 +50,6 @@ done
 if [ $system == "BIOS" ]; then
     echo -e "${MSGCOLOUR}Installing grub bootloader and microcode.....${NC}"
     pacman -S --noconfirm --needed grub networkmanager $microcode os-prober
-    os-prober
     
     if [ $encrypted == "YES" ]; then
         echo -e "${MSGCOLOUR}Configuring GRUB for encrypted install.....${NC}"
@@ -63,7 +62,7 @@ if [ $system == "BIOS" ]; then
         mkinitcpio -p $kernel
         grub-install /dev/"${drive}1"
     else
-        grub-install /dev/"${drive}1"
+        grub-install --target=1386-pc /dev/"${drive}"
     fi
     
     grub-mkconfig -o /boot/grub/grub.cfg

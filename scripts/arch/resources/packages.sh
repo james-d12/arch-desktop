@@ -83,17 +83,12 @@ packages=(
     'vlc'                       # Music and Video Player
     'obs-studio'                # Recording and Streaming
     'gimp'                      # Image Editor
-    'zathura'                   # PDF Reader
     'flameshot'                 # Screenshot software
     'feedreader'                # RSS Reader
     'youtube-dl'                # Youtube Downloader CL Program
     'libreoffice-still'         # Office Writer
     'virtualbox'                # Virtual Machine 
-    'virtualbox-host-dkms'      # Virtual Machine Dependency for LTS kernel.
-    'wireshark-qt'              # Network Analyzer
-    'transmission-qt'           # BitTorrent Software
-    'thunderbird'               # Email Client
-    'signal-desktop'            # Signal Desktop App
+    'virtualbox-host-dkms'      # Virtual Machine Dependency for LTS kernel.   
 )
 
 packagesaur=(
@@ -104,7 +99,6 @@ packagesaur=(
     'timeshift'                     # Backup Tool
     'bitwarden-bin'                 # Password Manager
     'brave-bin'                     # Privacy Focused Web Browser
-    'godot'                         # Lightweight Game-Engine
     'unityhub'                      # Unity3D Engine
     'zeal-git'                      # Offline Documentation Viewer
 )
