@@ -3,5 +3,6 @@
 depackages=(
     'sddm'
     'plasma'
+    'plasma-wayland-session'
     'kde-applications'
 )

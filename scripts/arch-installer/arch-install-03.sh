@@ -45,9 +45,6 @@ fi
 ##************************** Enable Systemd Services *************************************##
 echo -e "${MSGCOLOUR}Enabling systemd services....${NC}"
 
-echo -e "${MSGCOLOUR}Logging in as super user....${NC}"
-su 
-
 pacman -Qs gdm > /dev/null && \ 
 { echo -e "${MSGCOLOUR}Enabling gdm systemd service....${NC}"; systemctl enable gdm.service; }
 
@@ -66,5 +63,3 @@ pacman -Qs ufw > /dev/null && \
 pacman -Qs apparmor > /dev/null && \ 
 { echo -e "${MSGCOLOUR}Enabling apparmor systemd service....${NC}";     systemctl enable apparmor.service; }
 
-echo -e "${MSGCOLOUR}Exiting from super user....${NC}"
-exit 
