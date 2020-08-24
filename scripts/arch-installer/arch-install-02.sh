@@ -1,4 +1,4 @@
-#!bin\bash
+#!/usr/bin/env bash
 
 . /arch-install-scripts/arch-config.sh
 
@@ -92,18 +92,22 @@ else
 fi
 
 ##************************** Adding a User *************************************##
-if id "$user" &>/dev/null; then
+until [ ! id "$user" &>/dev/null ]; $user
+do
     echo -e "${MSGCOLOUR}User $user already exists....${NC}"
-else
-    echo -e "${MSGCOLOUR}Creating the user $user for group $usergroup.....${NC}"
-    useradd -m -G $usergroup $user 
-    until passwd $user
-    do
-        echo "Try setting user password again."
-        sleep 2
-    done
-    echo "$user ALL=(ALL) ALL" >> /etc/sudoers
-fi
+    read -p "Enter Username: " user 
+done
+
+echo -e "${MSGCOLOUR}Creating the user $user for group $usergroup.....${NC}"
+useradd -m -G $usergroup $user 
+until passwd $user
+do
+    echo "Try setting user password again."
+    sleep 2
+done
+echo -e "${MSGCOLOUR}Backing up /etc/sudoers to /etc/sudoers.bak....${NC}"
+cp /etc/sudoers /etc/sudoers.bak
+echo "$user ALL=(ALL) ALL" >> /etc/sudoers
 
 ##************************** Finish Installation and Cleanup *************************************##
 echo -e "${MSGCOLOUR}Part 2 of the script finished....${NC}"

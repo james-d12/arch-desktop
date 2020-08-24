@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+depackages=(
+    'sddm'
+    'plasma'
+    'konsole'
+)

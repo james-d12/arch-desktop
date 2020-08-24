@@ -1,4 +1,4 @@
-#!bin\bash
+#!/usr/bin/env bash
 
 . ./arch-config.sh
 
@@ -42,7 +42,7 @@ else
         echo -e "${MSGCOLOUR}Formatting encrypted install partitions...${NC}"
         mkfs.fat -F32 /dev/"${drive}1"
         mkfs.ext4 -L BOOT /dev/"${drive}2"
-        mkfs.ext4 /dev/mapper/$encryptedname
+        mkfs.ext4 -L ROOT /dev/mapper/$encryptedname
 
         echo -e "${MSGCOLOUR}Mounting encrypted install partitions...${NC}"
         mount /dev/mapper/$encryptedname /mnt
