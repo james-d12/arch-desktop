@@ -92,12 +92,6 @@ else
 fi
 
 ##************************** Adding a User *************************************##
-until [ ! id "$user" &>/dev/null ]; $user
-do
-    echo -e "${MSGCOLOUR}User $user already exists....${NC}"
-    read -p "Enter Username: " user 
-done
-
 echo -e "${MSGCOLOUR}Creating the user $user for group $usergroup.....${NC}"
 useradd -m -G $usergroup $user 
 until passwd $user

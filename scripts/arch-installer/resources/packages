@@ -8,6 +8,11 @@ packages=(
     'xorg'                          # A Group package that contains extra xorg-apps
     'xorg-xinit'                    # Useful For Starting Window Managers from a TTY 
     
+    'linux-lts-headers'             # Headers For LTS Kernel            
+    #'linux-headers'                # Headers For Kernel                
+    #'linux-zen-headers'            # Headers For ZEN Kernel            
+    #'linux-hardened-headers'       # Headers For Hardened Kernel   
+
     #'nvidia'                       # Nvidia Graphics Driver
     #'nvidia-lts'                   # Nvidia LTS Graphics Driver
     #'lib32-nvidia-utils'           # Nvidia OpenGL Library - Needed For Games and Steam
@@ -92,11 +97,7 @@ packages=(
     'libreoffice-still'             # Office Writer
     'virtualbox'                    # Virtual Machine 
     #'virtualbox-host-modules-arch' # Virtual Machine Dependency for standard kernel.  } ONLY 1 OF THESE PACKAGES
-    'virtualbox-host-dkms'          # Virtual Machine Dependency for Other kernels.    }
-    'linux-lts-headers'             # Headers For LTS Kernel            
-    #'linux-headers'                # Headers For Kernel                
-    #'linux-zen-headers'            # Headers For ZEN Kernel            
-    #'linux-hardened-headers'       # Headers For Hardened Kernel       
+    'virtualbox-host-dkms'          # Virtual Machine Dependency for Other kernels.    }    
 )
 
 # AUR PACKAGES
