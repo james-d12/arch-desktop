@@ -9,7 +9,9 @@ desktopenvironment="gnome-minimal"
 # - gnome                   | Installs the Gnome group package.
 # - gnome-minimal           | Install Gnome with a minimal set of applications
 # - kde                     | Installs KDE plasma packages
+# - kde-minimal             | Installs KDE plasma with a minimal set of packages
 # - xfce                    | Installs XFCE DE and packages.
+# - xfce-minimal            | Installs XFCE DE with a minimal set of packages
 # - custom                  | Installs custom DE and packages
 # - (empty)                 | If string is empty will not install any Desktop Environment.
 
