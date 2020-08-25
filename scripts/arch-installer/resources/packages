@@ -66,6 +66,9 @@ packages=(
     'jdk-openjdk'                   # Java SDK
     'dotnet-sdk'                    # .NET SDK
     'mono'                          # Mono For C#
+    'apache'                        # Apache HTTP Web Server
+    'ruby'                          # Ruby Scripting Language
+    'ruby-irb'                      # Interactive Ruby Shell
     'python-pip'                    # Python3 PIP
     'glfw'                          # OpenGL Library
     'glew'                          # OpenGL Library
@@ -126,9 +129,8 @@ extensionscode=(
     #'ms-dotnettools.csharp'                     # C# Language
     #'visualstudioexptteam.vscodeintellicode'    # IntelliCode
     #'be5invis.vscode-icontheme-nomo-dark'       # Nomo Dark Icons
-    #'andradei.minimal-colors'                   # Minimal Colours Theme
     #'rust-lang.rust'                            # Rust Language
     #'twxs.cmake'                                # CMake Support
     #'alefragnani.project-manager'               # Project Manager
-    #'alefragnani.bookmarks'                     # Bookmarks
+    #'ms-vscode.cpptools-themes'                 # C++ Themes
 )
