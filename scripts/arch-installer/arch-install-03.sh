@@ -14,7 +14,7 @@ sudo pacman -S --noconfirm --needed ${packages[@]}
 ##************************** Installing AUR Packages *************************************##
 if [ ! ${#packagesaur[@]} -eq 0 ]; then  
     echo -e "${MSGCOLOUR}Installing YAY.....${NC}"
-    if [ ! pacman -Qs yay > /dev/null ]; then
+    if sudo pacman -Qs yay > /dev/null; then
         git clone https://aur.archlinux.org/yay.git
         cd yay 
         makepkg -si
@@ -24,7 +24,7 @@ if [ ! ${#packagesaur[@]} -eq 0 ]; then
 fi
 
 ##************************** Installing PIP Packages *************************************##
-if [ sudo pacman -Qs pip > /dev/null ]; then
+if sudo pacman -Qs pip > /dev/null; then
     if [ ! ${#packagespip[@]} -eq 0 ]; then  
         echo -e "${MSGCOLOUR}Installing PIP packages.....${NC}"
         pip install ${packagespip[@]}
@@ -33,7 +33,7 @@ if [ sudo pacman -Qs pip > /dev/null ]; then
 fi
 
 ##************************** Installing VSCODE Extensions *************************************##
-if [ sudo pacman -Qs code > /dev/null ]; then
+if sudo pacman -Qs code > /dev/null; then
     if [ ! ${#extensionscode[@]} -eq 0 ]; then 
         echo -e "${MSGCOLOUR}Installing VSCode extensions.....${NC}"
         for ext in ${extensionscode[@]}; do 
@@ -45,32 +45,32 @@ fi
 ##************************** Enable Systemd Services *************************************##
 echo -e "${MSGCOLOUR}Enabling systemd services....${NC}"
 
-if [ sudo pacman -Qs gdm > /dev/null ]; then
+if sudo pacman -Qs gdm > /dev/null; then
     echo -e "${MSGCOLOUR}Enabling gdm systemd service....${NC}"; 
     systemctl enable gdm.service;
 fi
 
-if [ sudo pacman -Qs sddm > /dev/null ]; then
+if sudo pacman -Qs sddm > /dev/null; then
     echo -e "${MSGCOLOUR}Enabling sddm systemd service....${NC}"; 
     systemctl enable sddm.service;
 fi
 
-if [ sudo pacman -Qs lightdm > /dev/null ]; then
+if sudo pacman -Qs lightdm > /dev/null; then
     echo -e "${MSGCOLOUR}Enabling lightdm systemd service....${NC}"; 
     systemctl enable lightdm.service;
 fi
 
-if [ sudo pacman -Qs networkmanager > /dev/null ]; then
+if sudo pacman -Qs networkmanager > /dev/null; then
     echo -e "${MSGCOLOUR}Enabling networkmanager systemd service....${NC}"; 
     systemctl enable NetworkManager.service;
 fi
 
-if [ sudo pacman -Qs ufw > /dev/null ]; then
+if sudo pacman -Qs ufw > /dev/null; then
     echo -e "${MSGCOLOUR}Enabling ufw systemd service....${NC}"; 
     systemctl enable ufw.service;
 fi
 
-if [ sudo pacman -Qs apparmor > /dev/null ]; then
+if sudo pacman -Qs apparmor > /dev/null; then
     echo -e "${MSGCOLOUR}Enabling apparmor systemd service....${NC}"; 
     systemctl enable apparmor.service;
 fiF
