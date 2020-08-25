@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 depackages=(
+    'xdg-user-dirs'
     'lightdm'
     'lightdm-gtk-greeter'
     'xfce4'

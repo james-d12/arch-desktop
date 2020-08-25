@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 depackages=(
+    'xdg-user-dirs'
     'sddm'
     'plasma'
     'plasma-wayland-session'
