@@ -81,23 +81,24 @@ packages=(
     'grub-customizer'               # Grub Configurator
     'gparted'                       # Disk Management 
 
-    #*********** FONTS SETUP ***********************************************#
+    #*********** FONTS & APPEARANCE SETUP ***********************************************#
+    'papirus-icon-theme'            # Papirus Icon Theme Set 
     'ttf-liberation'                # Free Compatible Versions Like Arial Fonts
-    #'ttf-ubuntu-font-family'        # Adds Ubuntu Fonts
-    #'ttf-roboto'                    # Adds Roboto Fonts
+    #'ttf-ubuntu-font-family'       # Adds Ubuntu Fonts
+    #'ttf-roboto'                   # Adds Roboto Fonts
 
     #*********** APPLICATIONS SETUP ************#
     'firefox'                       # Firefox Browser
     'code'                          # VSCode Editor 
-    'neovim'                        # Neo Vim - More plugin Support
+    #'neovim'                        # Neo Vim - More plugin Support
     'discord'                       # Communication
     'vlc'                           # Music and Video Player
-    'obs-studio'                    # Recording and Streaming
-    'gimp'                          # Image Editor
+    #'obs-studio'                    # Recording and Streaming
+    #'gimp'                          # Image Editor
     'flameshot'                     # Screenshot software
-    'feedreader'                    # RSS Reader
-    'youtube-dl'                    # Youtube Downloader CL Program
-    'libreoffice-still'             # Office Writer
+    #'feedreader'                    # RSS Reader
+    #'youtube-dl'                    # Youtube Downloader CL Program
+    #'libreoffice-still'             # Office Writer
     'virtualbox'                    # Virtual Machine 
     #'virtualbox-host-modules-arch' # Virtual Machine Dependency for standard kernel.  } ONLY 1 OF THESE PACKAGES
     'virtualbox-host-dkms'          # Virtual Machine Dependency for Other kernels.    }    
