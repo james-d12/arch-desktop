@@ -7,7 +7,6 @@ depackages=(
     'evince'
     'file-roller'
     'gnome-calculator'
-    'gnome-characters'
     'gnome-color-manager'
     'gnome-control-center'
     'gnome-disk-utility'

@@ -28,7 +28,6 @@ packages=(
     'ntfs-3g'                       # Mount and interact with NTFS (Windows) drives.
     'wget'                          # File Downloader
     'curl'                          # File Downloader
-    'neofetch'                      # CLI Information Tool
     'hwinfo'                        # Hardware CLI tool
     'htop'                          # CLI Task Manager
     'dmidecode'                     # Interface For Memory
@@ -88,11 +87,11 @@ packages=(
     #'ttf-roboto'                   # Adds Roboto Fonts
 
     #*********** APPLICATIONS SETUP ************#
+    'plank'                         # A Docker
     'firefox'                       # Firefox Browser
     'code'                          # VSCode Editor 
     #'neovim'                        # Neo Vim - More plugin Support
     'discord'                       # Communication
-    'vlc'                           # Music and Video Player
     #'obs-studio'                    # Recording and Streaming
     #'gimp'                          # Image Editor
     'flameshot'                     # Screenshot software
