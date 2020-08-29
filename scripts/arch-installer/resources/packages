@@ -87,6 +87,8 @@ packages=(
     #'ttf-roboto'                   # Adds Roboto Fonts
 
     #*********** APPLICATIONS SETUP ************#
+    'zsh'                           # Alternative Shell to Bash
+    'zsh-completions'               # Auto Completions For ZSH
     'firefox'                       # Firefox Browser
     'code'                          # VSCode Editor 
     'discord'                       # Communication
