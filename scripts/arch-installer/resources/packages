@@ -8,7 +8,7 @@ packages=(
     'xorg'                          # A Group package that contains extra xorg-apps
     'xorg-xinit'                    # Useful For Starting Window Managers from a TTY 
     
-    'linux-lts-headers'             # Headers For LTS Kernel            
+    #'linux-lts-headers'             # Headers For LTS Kernel            
     #'linux-headers'                # Headers For Kernel                
     #'linux-zen-headers'            # Headers For ZEN Kernel            
     #'linux-hardened-headers'       # Headers For Hardened Kernel   
@@ -81,33 +81,38 @@ packages=(
     'gparted'                       # Disk Management 
 
     #*********** FONTS & APPEARANCE SETUP ***********************************************#
-    'papirus-icon-theme'            # Papirus Icon Theme Set 
     'ttf-liberation'                # Free Compatible Versions Like Arial Fonts
+    #'papirus-icon-theme'            # Papirus Icon Theme Set 
     #'ttf-ubuntu-font-family'       # Adds Ubuntu Fonts
     #'ttf-roboto'                   # Adds Roboto Fonts
 
     #*********** APPLICATIONS SETUP ************#
-    'plank'                         # A Docker
     'firefox'                       # Firefox Browser
     'code'                          # VSCode Editor 
-    #'neovim'                        # Neo Vim - More plugin Support
     'discord'                       # Communication
+    #'plank'                         # A Docker
+    #'flameshot'                     # Screenshot software
+    #'neovim'                        # Neo Vim - More plugin Support
     #'obs-studio'                    # Recording and Streaming
     #'gimp'                          # Image Editor
-    'flameshot'                     # Screenshot software
     #'feedreader'                    # RSS Reader
     #'youtube-dl'                    # Youtube Downloader CL Program
     #'libreoffice-still'             # Office Writer
-    'virtualbox'                    # Virtual Machine 
+    #'virtualbox'                    # Virtual Machine 
+    #'virtualbox-host-dkms'          # Virtual Machine Dependency for Other kernels.    }    
     #'virtualbox-host-modules-arch' # Virtual Machine Dependency for standard kernel.  } ONLY 1 OF THESE PACKAGES
-    'virtualbox-host-dkms'          # Virtual Machine Dependency for Other kernels.    }    
 )
 
 # AUR PACKAGES
 packagesaur=(
+    'protonvpn-cli-ng'              # ProtonVPN CLI Client
+    'zeal-git'                      # Offline Documentation Viewer
     'gconf'                         # Utility
     'timeshift'                     # Backup Tool
     'bitwarden-bin'                 # Password Manager
+    #'breeze-obsidian-cursor-theme'  # Obsidian Cursor Theme
+    #'gnome-shell-pomodoro'          # Pomodoro Timer for Gnome
+    #'gnome-terminal-transparency'   # Gnome Terminal With Transparency
 )
 
 # PYTHON-PIP PACKAGES
@@ -123,14 +128,12 @@ packagespip=(
 
 # VISUAL STUDIO CODE EXTENSIONS
 extensionscode=(
-    #'github.vscode-pull-request-github'         # GitHub Pull Requests
     #'ms-python.python'                          # Python Language 
     #'ms-vscode.cpptools'                        # C/C++ Language
     #'ms-dotnettools.csharp'                     # C# Language
-    #'visualstudioexptteam.vscodeintellicode'    # IntelliCode
     #'be5invis.vscode-icontheme-nomo-dark'       # Nomo Dark Icons
     #'rust-lang.rust'                            # Rust Language
     #'twxs.cmake'                                # CMake Support
     #'alefragnani.project-manager'               # Project Manager
-    #'ms-vscode.cpptools-themes'                 # C++ Themes
+    #'setpag.visual-assist-dark'                 # Visual Assist Dark Theme
 )
