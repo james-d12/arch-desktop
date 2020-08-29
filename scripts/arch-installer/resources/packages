@@ -112,8 +112,7 @@ packagesaur=(
     'bitwarden-bin'                 # Password Manager
     #'breeze-obsidian-cursor-theme'  # Obsidian Cursor Theme
     #'gnome-shell-pomodoro'          # Pomodoro Timer for Gnome
-    #'gnome-terminal-transparency'   # Gnome Terminal With Transparency
-)
+ )
 
 # PYTHON-PIP PACKAGES
 packagespip=(   

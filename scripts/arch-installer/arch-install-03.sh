@@ -13,8 +13,8 @@ sudo pacman -S --noconfirm --needed ${packages[@]}
 
 ##************************** Installing AUR Packages *************************************##
 if [ ! ${#packagesaur[@]} -eq 0 ]; then  
-    echo -e "${MSGCOLOUR}Installing YAY.....${NC}"
-    if sudo pacman -Qs yay > /dev/null; then
+    if ! command -v yay > /dev/null; then 
+        echo -e "${MSGCOLOUR}Installing YAY.....${NC}"
         git clone https://aur.archlinux.org/yay.git
         cd yay 
         makepkg -si
@@ -24,7 +24,7 @@ if [ ! ${#packagesaur[@]} -eq 0 ]; then
 fi
 
 ##************************** Installing PIP Packages *************************************##
-if sudo pacman -Qs pip > /dev/null; then
+if command -v pip > /dev/null; then
     if [ ! ${#packagespip[@]} -eq 0 ]; then  
         echo -e "${MSGCOLOUR}Installing PIP packages.....${NC}"
         pip install ${packagespip[@]}
@@ -33,7 +33,7 @@ if sudo pacman -Qs pip > /dev/null; then
 fi
 
 ##************************** Installing VSCODE Extensions *************************************##
-if sudo pacman -Qs code > /dev/null; then
+if command -v code > /dev/null; then
     if [ ! ${#extensionscode[@]} -eq 0 ]; then 
         echo -e "${MSGCOLOUR}Installing VSCode extensions.....${NC}"
         for ext in ${extensionscode[@]}; do 
