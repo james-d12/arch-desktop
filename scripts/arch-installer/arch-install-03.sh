@@ -73,4 +73,4 @@ fi
 if sudo pacman -Qs apparmor > /dev/null; then
     echo -e "${MSGCOLOUR}Enabling apparmor systemd service....${NC}"; 
     systemctl enable apparmor.service;
-fiF
+fi
