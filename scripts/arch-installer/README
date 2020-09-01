@@ -56,7 +56,7 @@ BIOS:
 
 BIOS ENCRYPTED: 
 
-/dev/sda1 = BOOT Partition 
-/dev/sda2 = ROOT Partition 
+/dev/sda1 = BOOT Partition      # Mark this as *bootable*
+/dev/sda2 = ROOT Partition            
 
 SWAP is created within the ROOT partition so that it's contents are encrypted
