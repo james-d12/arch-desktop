@@ -60,7 +60,7 @@ if [ $system == "BIOS" ]; then
         echo -e "${MSGCOLOUR}Backing up file /etc/mkinitcpio.conf to /etc/mkinitcpio.conf.bak.....${NC}"
         sed -i 's/HOOKS=(base udev autodetect modconf block filesystems keyboard fsck)/HOOKS=(base udev autodetect modconf block encrypt filesystems keyboard fsck)/g' /etc/mkinitcpio.conf
         mkinitcpio -p $kernel
-        grub-install --recheck /dev/"${drive}"
+        grub-install --recheck /dev/"${drive}1"
     else
         grub-install --target=i386-pc /dev/"${drive}"
     fi
