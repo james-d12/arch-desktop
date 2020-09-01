@@ -21,8 +21,8 @@ ssd='NO'                   # IS DRIVE SSD? YES | NO
 drive="sda"                # DRIVE NAME
 efimnt="/boot/efi"         # IF UEFI, EFI MOUNT POINT
 encrypted="NO"             # DO YOU WANT ENCRYPTION? YES | NO
-encryptedname="cr_root"    # Encrypted drive name
-encryptedswapsize="4096"   # Encrypted SWAP size (MB)
+encryptedname="cr_root"    # IF ENCRYPTION: Encrypted drive name
+encryptedswapsize="4096"   # IF ENCRYPTION: Encrypted SWAP size (MB)
 
 kernel="linux-lts"         # KERNEL NAME
 microcode="intel-ucode"    # MICROCODE (amd/intel-ucode)
