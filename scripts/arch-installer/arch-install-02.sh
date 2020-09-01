@@ -106,5 +106,5 @@ echo "$user ALL=(ALL) ALL" >> /etc/sudoers
 ##************************** Finish Installation and Cleanup *************************************##
 cp -r /arch-install-scripts/ /home/$user/
 sudo chmod -R 700 /home/$user/arch-install-scripts
-sudo chown -R user:wheel /home/$user/arch-install-scripts/
+sudo chown -R $user:$usergroup /home/$user/arch-install-scripts/
 echo -e "${MSGCOLOUR}Reboot and run 'arch-install-03.sh'...${NC}"
