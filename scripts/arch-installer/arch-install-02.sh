@@ -50,7 +50,6 @@ done
 if [ $system == "BIOS" ]; then
     echo -e "${MSGCOLOUR}Installing grub bootloader and microcode.....${NC}"
     pacman -S --noconfirm --needed grub networkmanager $microcode os-prober
-    
     if [ $encrypted == "YES" ]; then
         echo -e "${MSGCOLOUR}Configuring GRUB for encrypted install.....${NC}"
         echo -e "${MSGCOLOUR}Backing up file /etc/default/grub to /etc/default/grub.bak.....${NC}"

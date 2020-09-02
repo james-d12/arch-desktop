@@ -1,6 +1,15 @@
 #!/usr/bin/env bash
 
-. ./arch-config.sh
+#**************************** GET IF SSD ************************#
+PS3='Is Drive SSD? '
+options=("YES" "NO")
+select o  in "${options[@]}"; do
+    case $o in
+        "YES") ssd=$o; break;;
+        "NO") ssd=$o; break;;
+        *) echo "Invalid option $REPLY";;
+    esac
+done
 
 #**************************** GET IF ENCRYPT ************************#
 PS3='Encrypt Drive? '
@@ -11,6 +20,12 @@ select o  in "${options[@]}"; do
         "NO") encrypted=$o; break;;
         *) echo "Invalid option $REPLY";;
     esac
+done
+
+#**************************** GET DRIVE NAME ************************#
+while [ -z $drive ]; do
+    echo -n "Enter Drive Name: "; 
+    read drive
 done
 
 #**************************** GET SYSTEM TYPE ************************#
@@ -107,104 +122,118 @@ select o in "${options[@]}"; do
     esac
 done
 
-
 #**************************** GET HOSTNAME ************************#
 while [ -z $hostname ]; do
     echo -n "Enter Hostname: "; 
     read hostname
 done
 hostname=$(echo "$hostname" | awk '{print tolower($0)}')
+host="\n127.0.0.1	localhost\n::1		localhost\n127.0.1.1	$hostname.localdomain   $hostname"
 
+#**************************** OUTPUT TO CONFIG FILE ************************#
+rm -rf arch-config.sh
+touch arch-config.sh
+
+echo "#!/usr/bin/env bash
+MSGCOLOUR='\033[0;33m'
+PROMPTCOLOUR='\033[0;32m'
+NC='\033[0m'" >> arch-config.sh
 
 echo -e "
-encryption='"${encrypted}"'
-system='"${system}"' 
-kernel='"${kernel}" '
-microcode='"${microcode}"'
-desktopenvironment='"${desktopenvironment}"' 
-user='"${username}"' 
-locale='"${locale}"' 
-region='"${region}"' 
-city='"${city}"' 
-hostname='"${hostname}"' 
+drive="'"'${drive}'"'"
+ssd="'"'${ssd}'"'"
+encryption="'"'${encrypted}'"'"
+system="'"'${system}'"'" 
+kernel="'"'${kernel}'"'"
+microcode="'"'${microcode}'"'"
+desktopenvironment="'"'${desktopenvironment}'"'"
+user="'"'${username}'"'"
+locale="'"'${locale}'"'"
+region="'"'${region}'"'"
+city="'"'${city}'"'"
+hostname="'"'${hostname}'"'"
+host="'"'${host}'"'"
 " >> arch-config.sh 
+
+. ./arch-config.sh
 
 #************************** Formatting and Mounting drives *************************************##
 
-# BIOS SYSTEM
-if [ $system == "BIOS" ]; then
-    if [ $encrypted == "YES" ]; then
-        echo -e "${MSGCOLOUR}Setting up cryptsetup...${NC}"
-        modprobe dm-crypt
-        modprobe dm-mod
-        cryptsetup luksFormat -v -s 512 -h sha512 /dev/"${drive}2"
-        cryptsetup open /dev/"${drive}2" cr_root
-
-        echo -e "${MSGCOLOUR}Formatting encrypted install partitions...${NC}"
-        mkfs.ext4 -L BOOT /dev/"${drive}1"
-        mkfs.ext4 /dev/mapper/cr_root
-
-        echo -e "${MSGCOLOUR}Mounting encrypted install partitions...${NC}"
-        mount /dev/mapper/cr_root /mnt
-        mkdir /mnt/boot
-        mount /dev/"${drive}1" /mnt/boot
-    else
-        echo -e "${MSGCOLOUR}Formatting install partitions...${NC}"
-        mkswap -L SWAP /dev/"${drive}1"
-        mkfs.ext4 -L ROOT /dev/"${drive}2"
-        
-        echo -e "${MSGCOLOUR}Mounting install partitions...${NC}"
-        swapon /dev/"${drive}1"
-        mount /dev/"${drive}2" /mnt
-    fi
-# UEFI System
-else 
-    if [ $encrypted == "YES" ]; then
-        echo -e "${MSGCOLOUR}Setting up cryptsetup...${NC}"
-        modprobe dm-crypt
-        modprobe dm-mod
-        cryptsetup luksFormat -v -s 512 -h sha512 /dev/"${drive}3"
-        cryptsetup open /dev/"${drive}3" cr_root
-
-        echo -e "${MSGCOLOUR}Formatting encrypted install partitions...${NC}"
-        mkfs.fat -F32 /dev/"${drive}1"
-        mkfs.ext4 -L BOOT /dev/"${drive}2"
-        mkfs.ext4 -L ROOT /dev/mapper/cr_root
-
-        echo -e "${MSGCOLOUR}Mounting encrypted install partitions...${NC}"
-        mount /dev/mapper/cr_root /mnt
-        mkdir -p /mnt/boot
-        mount /dev/"${drive}2" /mnt/boot
-        mkdir -p /mnt/boot/efi
-        mount /dev/"${drive}1" /mnt/boot/efi
-    else
-        echo -e "${MSGCOLOUR}Formatting install partitions...${NC}"
-        mkfs.fat -F32 /dev/"${drive}1"
-        mkswap -L SWAP /dev/"${drive}2"
-        mkfs.ext4 -L ROOT /dev/"${drive}3"
-
-        echo -e "${MSGCOLOUR}Mounting install partitions...${NC}"
-        swapon /dev/"${drive}2"
-        mount /dev/"${drive}3" /mnt
-        mkdir -p /mnt/boot 
-        mkdir -p /mnt/boot/efi
-        mount /dev/"${drive}1" /mnt/boot/efi
-    fi
-fi
-
-
-#************************** Installing Core Packages *************************************##
-echo -e "${MSGCOLOUR}Preparing to install core packages...${NC}"
-pacstrap /mnt base base-devel $kernel linux-firmware nano
-
-##************************** fstab file *************************************##
-echo -e "${MSGCOLOUR}Generating fstab file....${NC}"
-genfstab -U /mnt >> /mnt/etc/fstab
-
-echo -e "${MSGCOLOUR}Copying scripts to /mnt point....${NC}"
-mkdir -p /mnt/arch-install-scripts/
-cp -r * /mnt/arch-install-scripts/
-
-##************************** chroot *************************************##
-echo -e "${MSGCOLOUR}Chrooting into /mnt point....${NC}"
-arch-chroot /mnt /bin/bash -c "bash arch-install-scripts/arch-install-02.sh"
+## BIOS SYSTEM
+#if [ $system == "BIOS" ]; then
+#    if [ $encrypted == "YES" ]; then
+#        echo -e "${MSGCOLOUR}Setting up cryptsetup...${NC}"
+#        modprobe dm-crypt
+#        modprobe dm-mod
+#        cryptsetup luksFormat -v -s 512 -h sha512 /dev/"${drive}2"
+#        cryptsetup open /dev/"${drive}2" cr_root
+#
+#        echo -e "${MSGCOLOUR}Formatting encrypted install partitions...${NC}"
+#        mkfs.ext4 -L BOOT /dev/"${drive}1"
+#        mkfs.ext4 /dev/mapper/cr_root
+#
+#        echo -e "${MSGCOLOUR}Mounting encrypted install partitions...${NC}"
+#        mount /dev/mapper/cr_root /mnt
+#        mkdir /mnt/boot
+#        mount /dev/"${drive}1" /mnt/boot
+#    else
+#        echo -e "${MSGCOLOUR}Formatting install partitions...${NC}"
+#        mkswap -L SWAP /dev/"${drive}1"
+#        mkfs.ext4 -L ROOT /dev/"${drive}2"
+#        
+#        echo -e "${MSGCOLOUR}Mounting install partitions...${NC}"
+#        swapon /dev/"${drive}1"
+#        mount /dev/"${drive}2" /mnt
+#    fi
+## UEFI System
+#else 
+#    if [ $encrypted == "YES" ]; then
+#        echo -e "${MSGCOLOUR}Setting up cryptsetup...${NC}"
+#        modprobe dm-crypt
+#        modprobe dm-mod
+#        cryptsetup luksFormat -v -s 512 -h sha512 /dev/"${drive}3"
+#        cryptsetup open /dev/"${drive}3" cr_root
+#
+#        echo -e "${MSGCOLOUR}Formatting encrypted install partitions...${NC}"
+#        mkfs.fat -F32 /dev/"${drive}1"
+#        mkfs.ext4 -L BOOT /dev/"${drive}2"
+#        mkfs.ext4 -L ROOT /dev/mapper/cr_root
+#
+#        echo -e "${MSGCOLOUR}Mounting encrypted install partitions...${NC}"
+#        mount /dev/mapper/cr_root /mnt
+#        mkdir -p /mnt/boot
+#        mount /dev/"${drive}2" /mnt/boot
+#        mkdir -p /mnt/boot/efi
+#        mount /dev/"${drive}1" /mnt/boot/efi
+#    else
+#        echo -e "${MSGCOLOUR}Formatting install partitions...${NC}"
+#        mkfs.fat -F32 /dev/"${drive}1"
+#        mkswap -L SWAP /dev/"${drive}2"
+#        mkfs.ext4 -L ROOT /dev/"${drive}3"
+#
+#        echo -e "${MSGCOLOUR}Mounting install partitions...${NC}"
+#        swapon /dev/"${drive}2"
+#        mount /dev/"${drive}3" /mnt
+#        mkdir -p /mnt/boot 
+#        mkdir -p /mnt/boot/efi
+#        mount /dev/"${drive}1" /mnt/boot/efi
+#    fi
+#fi
+#
+#
+##************************** Installing Core Packages *************************************##
+#echo -e "${MSGCOLOUR}Preparing to install core packages...${NC}"
+#pacstrap /mnt base base-devel $kernel linux-firmware nano
+#1
+###************************** fstab file *************************************##
+#echo -e "${MSGCOLOUR}Generating fstab file....${NC}"
+#genfstab -U /mnt >> /mnt/etc/fstab
+#
+#echo -e "${MSGCOLOUR}Copying scripts to /mnt point....${NC}"
+#mkdir -p /mnt/arch-install-scripts/
+#cp -r * /mnt/arch-install-scripts/
+#
+###************************** chroot *************************************##
+#echo -e "${MSGCOLOUR}Chrooting into /mnt point....${NC}"
+#arch-chroot /mnt /bin/bash -c "bash arch-install-scripts/arch-install-02.sh"
+#
