@@ -20,7 +20,7 @@ if [ $system == "BIOS" ]; then
         echo -e "${MSGCOLOUR}Mounting encrypted install partitions...${NC}"
         mount /dev/mapper/$encryptedname /mnt
         mkdir /mnt/boot
-        mount /dev/"${drive}2" /mnt/boot
+        mount /dev/"${drive}1" /mnt/boot
     else
         echo -e "${MSGCOLOUR}Formatting install partitions...${NC}"
         mkswap -L SWAP /dev/"${drive}1"
