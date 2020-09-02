@@ -46,12 +46,12 @@ done
 
 ##************************** Installing Bootloader and NetworkManager *************************************##
 
-pacman -S --noconfirm --needed networkmanager wireless_tools wp_supplicant dialog 
+pacman -S --noconfirm --needed networkmanager wireless_tools wpa_supplicant netctl dialog 
 
 # BIOS
 if [ "$system" == "BIOS" ]; then
     echo -e "${MSGCOLOUR}Installing grub bootloader and microcode.....${NC}"
-    pacman -S --noconfirm --needed grub networkmanager $microcode os-prober
+    pacman -S --noconfirm --needed grub $microcode os-prober
     if [ "$encrypted" == "YES" ]; then
         echo -e "${MSGCOLOUR}Configuring GRUB for encrypted install.....${NC}"
         echo -e "${MSGCOLOUR}Backing up file /etc/default/grub to /etc/default/grub.bak.....${NC}"
@@ -70,7 +70,7 @@ if [ "$system" == "BIOS" ]; then
 # UEFI
 else
     echo -e "${MSGCOLOUR}Installing grub bootloader and microcode.....${NC}"
-    pacman -S --noconfirm --needed grub efibootmgr networkmanager $microcode os-prober 
+    pacman -S --noconfirm --needed grub efibootmgr $microcode os-prober 
     os-prober
 
     if [ "$encrypted" == "YES" ]; then

@@ -82,8 +82,6 @@ select o in "${options[@]}"; do
     case $o in
         "gnome") desktopenvironment=$o; break;;
         "gnome-minimal") desktopenvironment=$o; break;;
-        "kde") desktopenvironment=$o; break;;
-        "kde-minimal") desktopenvironment=$o; break;;
         "xfce") desktopenvironment=$o; break;;
         "xfce-minimal") desktopenvironment=$o; break;;
         "custom") desktopenvironment=$o; break;;
