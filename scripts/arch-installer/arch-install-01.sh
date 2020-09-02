@@ -160,8 +160,8 @@ host="'"'${host}'"'"
 #************************** Formatting and Mounting drives *************************************##
 
 # BIOS SYSTEM
-if [ $system == "BIOS" ]; then
-    if [ $encrypted == "YES" ]; then
+if [ "$system" == "BIOS" ]; then
+    if [ "$encrypted" == "YES" ]; then
         echo -e "${MSGCOLOUR}Setting up cryptsetup...${NC}"
         modprobe dm-crypt
         modprobe dm-mod
@@ -187,7 +187,7 @@ if [ $system == "BIOS" ]; then
     fi
 # UEFI System
 else 
-    if [ $encrypted == "YES" ]; then
+    if [ "$encrypted" == "YES" ]; then
         echo -e "${MSGCOLOUR}Setting up cryptsetup...${NC}"
         modprobe dm-crypt
         modprobe dm-mod
