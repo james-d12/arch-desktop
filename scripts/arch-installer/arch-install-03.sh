@@ -3,16 +3,18 @@
 . ./arch-config.sh
 . resources/packages
 
-### This Script is run on reboot as user NOT ROOT ###
-
-##************************** Installing Packages *************************************##
+echo "-----------------------------------------"
+echo "--     Installing Pacman Packages      --"
+echo "-----------------------------------------"
 echo -e "${MSGCOLOUR}Installing packages.....${NC}"
 defile="resources/${desktopenvironment}" && . ./$defile
 sudo pacman -S --noconfirm --needed ${depackages[@]}
 sudo pacman -S --noconfirm --needed ${packages[@]}
 
-##************************** Installing AUR Packages *************************************##
 if [ ! ${#packagesaur[@]} -eq 0 ]; then  
+    echo "-----------------------------------------"
+    echo "--      Installing AUR Packages        --"
+    echo "-----------------------------------------"
     if ! command -v yay > /dev/null; then 
         echo -e "${MSGCOLOUR}Installing YAY.....${NC}"
         git clone https://aur.archlinux.org/yay.git
@@ -23,18 +25,22 @@ if [ ! ${#packagesaur[@]} -eq 0 ]; then
     yay -S --batchinstall --cleanafter --noconfirm --needed ${packagesaur[@]}
 fi
 
-##************************** Installing PIP Packages *************************************##
 if command -v pip > /dev/null; then
     if [ ! ${#packagespip[@]} -eq 0 ]; then  
+        echo "-----------------------------------------"
+        echo "--      Installing PIP Packages        --"
+        echo "-----------------------------------------"
         echo -e "${MSGCOLOUR}Installing PIP packages.....${NC}"
         pip install ${packagespip[@]}
         export PATH=/home/$user/.local/bin:$PATH
     fi
 fi
 
-##************************** Installing VSCODE Extensions *************************************##
 if command -v code > /dev/null; then
     if [ ! ${#extensionscode[@]} -eq 0 ]; then 
+        echo "-----------------------------------------"
+        echo "--     Installing VSCODE Packages      --"
+        echo "-----------------------------------------"
         echo -e "${MSGCOLOUR}Installing VSCode extensions.....${NC}"
         for ext in ${extensionscode[@]}; do 
             code --install-extension $ext
@@ -42,7 +48,9 @@ if command -v code > /dev/null; then
     fi 
 fi
 
-##************************** Enable Systemd Services *************************************##
+echo "-----------------------------------------"
+echo "--     Enabling Systemd Services       --"
+echo "-----------------------------------------"
 echo -e "${MSGCOLOUR}Enabling systemd services....${NC}"
 
 if sudo pacman -Qs gdm > /dev/null; then

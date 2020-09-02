@@ -4,6 +4,9 @@
 
 ##************************** Encrypted Install - Add SWAP ******************************##
 if [ "$encrypted" == "YES" ]; then
+    echo "-----------------------------------------"
+    echo "--      Installing Core Packages       --"
+    echo "-----------------------------------------"
     echo -e "${MSGCOLOUR}Adding encrypted SWAP file....${NC}"
     dd if=/dev/zero of=/swapfile bs=1M count=$encryptedswapsize status=progress
     chmod 600 /swapfile
@@ -14,13 +17,17 @@ if [ "$encrypted" == "YES" ]; then
     echo "/swapfile none swap sw 0 0" >> /etc/fstab
 fi
 
-##************************** local date and time ******************************##
+echo "-----------------------------------------"
+echo "--    Setting up Local Time and Date   --"
+echo "-----------------------------------------"
 echo -e "${MSGCOLOUR}Configuring local time and date....${NC}"
 timedatectl set-ntp true
 ln -sf /usr/share/zoneinfo/$region/$city /etc/localtime
 hwclock --systohc
 
-##************************** Localisation *************************************##
+echo "-----------------------------------------"
+echo "--      Setting up Localisation        --"
+echo "-----------------------------------------"
 echo -e "${MSGCOLOUR}Configuring localisation...${NC}"
 echo -e "${MSGCOLOUR}Creating backup /etc/locale.gen file at /etc/locale.gen.bak${NC}"
 cp /etc/locale.gen /etc/locale.gen.bak
@@ -31,12 +38,17 @@ echo "LANG=$locale.UTF-8" > /etc/locale.conf
 export "LANG=$locale.UTF-8"
 locale-gen
 
-##************************** Host Configuration *************************************##
+echo "-----------------------------------------"
+echo "--      Setting up Host Settings       --"
+echo "-----------------------------------------"
 echo -e "${MSGCOLOUR}Setting up host and hostname settings.....${NC}"
 echo "$hostname" > /etc/hostname 
 echo "$host" >> /etc/hosts  
 
-##************************** Setting root password *************************************##
+
+echo "-----------------------------------------"
+echo "--      Setting ROOT Password          --"
+echo "-----------------------------------------"
 echo -e "${MSGCOLOUR}Setting root password.....${NC}"
 until passwd
 do
@@ -44,9 +56,11 @@ do
     sleep 2
 done
 
-##************************** Installing Bootloader and NetworkManager *************************************##
-
-pacman -S --noconfirm --needed networkmanager wireless_tools wpa_supplicant netctl dialog 
+echo "-----------------------------------------"
+echo "--  Installing Bootloader and Network  --"
+echo "-----------------------------------------"
+pacman -S --noconfirm --needed networkmanager wireless_tools wpa_supplicant netctl dialog iwd dhclient
+systemctl enable --now NetworkManager
 
 # BIOS
 if [ "$system" == "BIOS" ]; then
@@ -66,13 +80,10 @@ if [ "$system" == "BIOS" ]; then
         grub-install --target=i386-pc /dev/"${drive}"
     fi
     grub-mkconfig -o /boot/grub/grub.cfg    
-    systemctl enable NetworkManager
 # UEFI
 else
     echo -e "${MSGCOLOUR}Installing grub bootloader and microcode.....${NC}"
     pacman -S --noconfirm --needed grub efibootmgr $microcode os-prober 
-    os-prober
-
     if [ "$encrypted" == "YES" ]; then
         echo -e "${MSGCOLOUR}Configuring GRUB for encrypted install.....${NC}"
         echo -e "${MSGCOLOUR}Backing up file /etc/default/grub to /etc/default/grub.bak.....${NC}"
@@ -83,14 +94,14 @@ else
         sed -i 's/HOOKS=(base udev autodetect modconf block filesystems keyboard fsck)/HOOKS=(base udev autodetect modconf block encrypt filesystems keyboard fsck)/g' /etc/mkinitcpio.conf
         mkinitcpio -p $kernel
     fi
-
     grub-install --target=x86_64-efi --bootloader-id=GRUB --efi-directory=/boot/efi
     grub-mkconfig -o /boot/grub/grub.cfg
     mkinitcpio -p $kernel
-    systemctl enable NetworkManager
 fi
 
-##************************** Adding a User *************************************##
+echo "-----------------------------------------"
+echo "--            Adding User              --"
+echo "-----------------------------------------"
 echo -e "${MSGCOLOUR}Creating the user $user for group wheel.....${NC}"
 useradd -m -G wheel $user 
 until passwd $user
@@ -102,7 +113,9 @@ echo -e "${MSGCOLOUR}Backing up /etc/sudoers to /etc/sudoers.bak....${NC}"
 cp /etc/sudoers /etc/sudoers.bak
 echo "$user ALL=(ALL) ALL" >> /etc/sudoers
 
-##************************** Finish Installation and Cleanup *************************************##
+echo "-----------------------------------------"
+echo "--         Finishing up Script         --"
+echo "-----------------------------------------"
 cp -r /arch-install-scripts/ /home/$user/
 sudo chmod -R 700 /home/$user/arch-install-scripts
 sudo chown -R $user:wheel /home/$user/arch-install-scripts/
