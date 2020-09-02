@@ -3,7 +3,7 @@
 . /arch-install-scripts/arch-config.sh
 
 ##************************** Encrypted Install - Add SWAP ******************************##
-if [ $encrypted == "YES" ]; then
+if [ "$encrypted" == "YES" ]; then
     echo -e "${MSGCOLOUR}Adding encrypted SWAP file....${NC}"
     dd if=/dev/zero of=/swapfile bs=1M count=$encryptedswapsize status=progress
     chmod 600 /swapfile
@@ -47,10 +47,10 @@ done
 ##************************** Installing Bootloader and NetworkManager *************************************##
 
 # BIOS
-if [ $system == "BIOS" ]; then
+if [ "$system" == "BIOS" ]; then
     echo -e "${MSGCOLOUR}Installing grub bootloader and microcode.....${NC}"
     pacman -S --noconfirm --needed grub networkmanager $microcode os-prober
-    if [ $encrypted == "YES" ]; then
+    if [ "$encrypted" == "YES" ]; then
         echo -e "${MSGCOLOUR}Configuring GRUB for encrypted install.....${NC}"
         echo -e "${MSGCOLOUR}Backing up file /etc/default/grub to /etc/default/grub.bak.....${NC}"
         cp /etc/default/grub /etc/default/grub.bak
@@ -72,7 +72,7 @@ else
     pacman -S --noconfirm --needed grub efibootmgr networkmanager $microcode os-prober 
     os-prober
 
-    if [ $encrypted == "YES" ]; then
+    if [ "$encrypted" == "YES" ]; then
         echo -e "${MSGCOLOUR}Configuring GRUB for encrypted install.....${NC}"
         echo -e "${MSGCOLOUR}Backing up file /etc/default/grub to /etc/default/grub.bak.....${NC}"
         cp /etc/default/grub /etc/default/grub.bak
