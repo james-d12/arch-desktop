@@ -24,7 +24,7 @@ done
 
 
 #**************************** GET SWAP SIZE (ENCRYPTED) ************************#
-if [ "$encrypted" == "YES"]; then
+if [ "$encrypted" == "YES" ]; then
     while [ -z $encryptedswapsize ]; do
         echo -n "Enter Encrypted Swap Size(MB): "; 
         read encryptedswapsize
