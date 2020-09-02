@@ -63,7 +63,6 @@ if [ "$system" == "BIOS" ]; then
     else
         grub-install --target=i386-pc /dev/"${drive}"
     fi
-    
     grub-mkconfig -o /boot/grub/grub.cfg    
     systemctl enable NetworkManager
 # UEFI

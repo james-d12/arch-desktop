@@ -22,7 +22,6 @@ select o  in "${options[@]}"; do
     esac
 done
 
-
 #**************************** GET SWAP SIZE (ENCRYPTED) ************************#
 if [ "$encrypted" == "YES" ]; then
     while [ -z $encryptedswapsize ]; do
@@ -30,8 +29,6 @@ if [ "$encrypted" == "YES" ]; then
         read encryptedswapsize
     done
 fi
-
-
 
 #**************************** GET DRIVE NAME ************************#
 while [ -z $drive ]; do
@@ -153,7 +150,7 @@ NC='\033[0m'" >> arch-config.sh
 echo -e "
 drive="'"'${drive}'"'"
 ssd="'"'${ssd}'"'"
-encryption="'"'${encrypted}'"'"
+encrypted="'"'${encrypted}'"'"
 encryptedswapsize="'"'${encryptedswapsize}'"'"
 system="'"'${system}'"'" 
 kernel="'"'${kernel}'"'"
