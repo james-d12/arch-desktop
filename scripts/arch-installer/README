@@ -37,26 +37,26 @@ WHERE DRIVE NAME = SDA (SUBSTITUTE SDA FOR YOUR DRIVE NAME)
 
 UEFI: 
 
-/dev/sda1 = EFI Partition
-/dev/sda2 = SWAP Partition 
-/dev/sda3 = ROOT Partition 
+/dev/sda1 = EFI Partition       TYPE: EFI FILESYSTEM
+/dev/sda2 = SWAP Partition      TYPE: LINUX SWAP 
+/dev/sda3 = ROOT Partition      TYPE: LINUX FILESYSTEM
 
 UEFI ENCRYPTED:
 
-/dev/sda1 = EFI Partition 
-/dev/sda2 = BOOT Partition 
-/dev/sda3 = ROOT Partition 
+/dev/sda1 = EFI Partition       TYPE: EFI FILESYSTEM 
+/dev/sda2 = BOOT Partition      TYPE: LINUX FILESYSTEM
+/dev/sda3 = ROOT Partition      TYPE: LINUX FILESYSTEM
 
 SWAP is created within the ROOT partition so that it's contents are encrypted
 
 BIOS: 
 
-/dev/sda1 = SWAP Partition 
-/dev/sda2 = ROOT Partition 
+/dev/sda1 = SWAP Partition      TYPE: LINUX SWAP / SOLARIS
+/dev/sda2 = ROOT Partition      TYPE: LINUX 
 
 BIOS ENCRYPTED: 
 
-/dev/sda1 = BOOT Partition      # Mark this as *bootable*
-/dev/sda2 = ROOT Partition            
+/dev/sda1 = BOOT Partition      TYPE: LINUX | MARK AS *BOOTABLE*
+/dev/sda2 = ROOT Partition      TYPE: LINUX
 
 SWAP is created within the ROOT partition so that it's contents are encrypted

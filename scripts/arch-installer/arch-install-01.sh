@@ -2,6 +2,18 @@
 
 . ./arch-config.sh
 
+echo "Encryption:           $encrypted"
+echo "System:               $system"
+echo "Kernel:               $kernel"
+echo "Microcode:            $microcode"
+echo "Desktop Environment:  $desktopenvironment"
+
+echo "Username:             $username"
+echo "Locale:               $locale"
+echo "Region:               $region"
+echo "City:                 $city"
+echo "Hostname:             $hostname"
+
 #************************** Formatting and Mounting drives *************************************##
 
 # BIOS SYSTEM
@@ -11,14 +23,14 @@ if [ $system == "BIOS" ]; then
         modprobe dm-crypt
         modprobe dm-mod
         cryptsetup luksFormat -v -s 512 -h sha512 /dev/"${drive}2"
-        cryptsetup open /dev/"${drive}2" $encryptedname
+        cryptsetup open /dev/"${drive}2" cr_root
 
         echo -e "${MSGCOLOUR}Formatting encrypted install partitions...${NC}"
         mkfs.ext4 -L BOOT /dev/"${drive}1"
-        mkfs.ext4 /dev/mapper/$encryptedname
+        mkfs.ext4 /dev/mapper/cr_root
 
         echo -e "${MSGCOLOUR}Mounting encrypted install partitions...${NC}"
-        mount /dev/mapper/$encryptedname /mnt
+        mount /dev/mapper/cr_root /mnt
         mkdir /mnt/boot
         mount /dev/"${drive}1" /mnt/boot
     else
@@ -37,19 +49,19 @@ else
         modprobe dm-crypt
         modprobe dm-mod
         cryptsetup luksFormat -v -s 512 -h sha512 /dev/"${drive}3"
-        cryptsetup open /dev/"${drive}3" $encryptedname
+        cryptsetup open /dev/"${drive}3" cr_root
 
         echo -e "${MSGCOLOUR}Formatting encrypted install partitions...${NC}"
         mkfs.fat -F32 /dev/"${drive}1"
         mkfs.ext4 -L BOOT /dev/"${drive}2"
-        mkfs.ext4 -L ROOT /dev/mapper/$encryptedname
+        mkfs.ext4 -L ROOT /dev/mapper/cr_root
 
         echo -e "${MSGCOLOUR}Mounting encrypted install partitions...${NC}"
-        mount /dev/mapper/$encryptedname /mnt
-        mkdir /mnt/boot
+        mount /dev/mapper/cr_root /mnt
+        mkdir -p /mnt/boot
         mount /dev/"${drive}2" /mnt/boot
-        mkdir /mnt$efimnt
-        mount /dev/"${drive}1" /mnt$efimnt
+        mkdir -p /mnt/boot/efi
+        mount /dev/"${drive}1" /mnt/boot/efi
     else
         echo -e "${MSGCOLOUR}Formatting install partitions...${NC}"
         mkfs.fat -F32 /dev/"${drive}1"
@@ -60,8 +72,8 @@ else
         swapon /dev/"${drive}2"
         mount /dev/"${drive}3" /mnt
         mkdir -p /mnt/boot 
-        mkdir -p /mnt$efimnt
-        mount /dev/"${drive}1" /mnt$efimnt
+        mkdir -p /mnt/boot/efi
+        mount /dev/"${drive}1" /mnt/boot/efi
     fi
 fi
 

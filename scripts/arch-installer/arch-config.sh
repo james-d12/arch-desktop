@@ -17,28 +17,21 @@ desktopenvironment="gnome-minimal"
 
 ## Drive Parameters
 
-ssd='NO'                   # IS DRIVE SSD? YES | NO          
 drive="sda"                # DRIVE NAME
-efimnt="/boot/efi"         # IF UEFI, EFI MOUNT POINT
-encrypted="NO"             # DO YOU WANT ENCRYPTION? YES | NO
-encryptedname="cr_root"    # IF ENCRYPTION: Encrypted drive name
 encryptedswapsize="4096"   # IF ENCRYPTION: Encrypted SWAP size (MB)
+ssd='NO'                   # IS DRIVE SSD? YES | NO          
 
-kernel="linux-lts"         # KERNEL NAME
-microcode="intel-ucode"    # MICROCODE (amd/intel-ucode)
-system="UEFI"              # UEFI | BIOS
- 
-locale="en_GB"             # LOCALE - E.G. en_GB = British English 
-region="Europe"            # REGION
-city="London"              # CITY
-hostname="arch-pc"         # HOSTNAME
-
-user="user"                # NAME OF USER (MUST BE LOWERCASE)
-usergroup="wheel"          # GROUP FOR USER (MUST BE LOWERCASE)
-
+system=""              
+encrypted=""             
+kernel=""         
+microcode=""    
+user=""                
+locale=""            
+region=""            
+city=""              
+hostname=""         
 
 # predefined parameters DO NOT CHANGE!
-
 MSGCOLOUR='\033[0;33m'
 PROMPTCOLOUR='\033[0;32m'
 NC='\033[0m'

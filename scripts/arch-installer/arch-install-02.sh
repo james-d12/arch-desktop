@@ -55,7 +55,7 @@ if [ $system == "BIOS" ]; then
         echo -e "${MSGCOLOUR}Configuring GRUB for encrypted install.....${NC}"
         echo -e "${MSGCOLOUR}Backing up file /etc/default/grub to /etc/default/grub.bak.....${NC}"
         cp /etc/default/grub /etc/default/grub.bak
-        line='GRUB_CMDLINE_LINUX="cryptdevice=/dev/'"${drive}"'2:'"${encryptedname}"'"'
+        line='GRUB_CMDLINE_LINUX="cryptdevice=/dev/'"${drive}"'2:cr_root"'
         sed -i 's#GRUB_CMDLINE_LINUX=""#'"${line}"'#g' /etc/default/grub
         echo -e "${MSGCOLOUR}Backing up file /etc/mkinitcpio.conf to /etc/mkinitcpio.conf.bak.....${NC}"
         sed -i 's/HOOKS=(base udev autodetect modconf block filesystems keyboard fsck)/HOOKS=(base udev autodetect modconf block encrypt filesystems keyboard fsck)/g' /etc/mkinitcpio.conf
@@ -77,22 +77,22 @@ else
         echo -e "${MSGCOLOUR}Configuring GRUB for encrypted install.....${NC}"
         echo -e "${MSGCOLOUR}Backing up file /etc/default/grub to /etc/default/grub.bak.....${NC}"
         cp /etc/default/grub /etc/default/grub.bak
-        line='GRUB_CMDLINE_LINUX="cryptdevice=/dev/'"${drive}"'3:'"${encryptedname}"'"'
+        line='GRUB_CMDLINE_LINUX="cryptdevice=/dev/'"${drive}"'3:cr_root"'
         sed -i 's#GRUB_CMDLINE_LINUX=""#'"${line}"'#g' /etc/default/grub
         echo -e "${MSGCOLOUR}Backing up file /etc/mkinitcpio.conf to /etc/mkinitcpio.conf.bak.....${NC}"
         sed -i 's/HOOKS=(base udev autodetect modconf block filesystems keyboard fsck)/HOOKS=(base udev autodetect modconf block encrypt filesystems keyboard fsck)/g' /etc/mkinitcpio.conf
         mkinitcpio -p $kernel
     fi
 
-    grub-install --target=x86_64-efi --bootloader-id=GRUB --efi-directory=$efimnt
+    grub-install --target=x86_64-efi --bootloader-id=GRUB --efi-directory=/boot/efi
     grub-mkconfig -o /boot/grub/grub.cfg
     mkinitcpio -p $kernel
     systemctl enable NetworkManager
 fi
 
 ##************************** Adding a User *************************************##
-echo -e "${MSGCOLOUR}Creating the user $user for group $usergroup.....${NC}"
-useradd -m -G $usergroup $user 
+echo -e "${MSGCOLOUR}Creating the user $user for group wheel.....${NC}"
+useradd -m -G wheel $user 
 until passwd $user
 do
     echo "Try setting user password again."
@@ -105,5 +105,5 @@ echo "$user ALL=(ALL) ALL" >> /etc/sudoers
 ##************************** Finish Installation and Cleanup *************************************##
 cp -r /arch-install-scripts/ /home/$user/
 sudo chmod -R 700 /home/$user/arch-install-scripts
-sudo chown -R $user:$usergroup /home/$user/arch-install-scripts/
+sudo chown -R $user:wheel /home/$user/arch-install-scripts/
 echo -e "${MSGCOLOUR}Reboot and run 'arch-install-03.sh'...${NC}"

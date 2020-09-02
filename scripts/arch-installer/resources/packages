@@ -109,9 +109,9 @@ packages=(
 packagesaur=(
     'protonvpn-cli-ng'              # ProtonVPN CLI Client
     'zeal-git'                      # Offline Documentation Viewer
-    'gconf'                         # Utility
     'timeshift'                     # Backup Tool
     'bitwarden-bin'                 # Password Manager
+    #'gconf'                         # Utility
     #'breeze-obsidian-cursor-theme'  # Obsidian Cursor Theme
     #'gnome-shell-pomodoro'          # Pomodoro Timer for Gnome
  )
