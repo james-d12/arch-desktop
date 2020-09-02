@@ -22,6 +22,17 @@ select o  in "${options[@]}"; do
     esac
 done
 
+
+#**************************** GET SWAP SIZE (ENCRYPTED) ************************#
+if [ "$encrypted" == "YES"]; then
+    while [ -z $encryptedswapsize ]; do
+        echo -n "Enter Encrypted Swap Size(MB): "; 
+        read encryptedswapsize
+    done
+fi
+
+
+
 #**************************** GET DRIVE NAME ************************#
 while [ -z $drive ]; do
     echo -n "Enter Drive Name: "; 
@@ -143,6 +154,7 @@ echo -e "
 drive="'"'${drive}'"'"
 ssd="'"'${ssd}'"'"
 encryption="'"'${encrypted}'"'"
+encryptedswapsize="'"'${encryptedswapsize}'"'"
 system="'"'${system}'"'" 
 kernel="'"'${kernel}'"'"
 microcode="'"'${microcode}'"'"
