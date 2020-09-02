@@ -46,6 +46,8 @@ done
 
 ##************************** Installing Bootloader and NetworkManager *************************************##
 
+pacman -S --noconfirm --needed networkmanager wireless_tools wp_supplicant dialog 
+
 # BIOS
 if [ "$system" == "BIOS" ]; then
     echo -e "${MSGCOLOUR}Installing grub bootloader and microcode.....${NC}"

@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 
 # Contains a list of packages to install.
+# To remove a package simply comment it out using the hashtag symbol #
+# To add a package simply remove the hashtag symbol #
+# TO add a package not present in the lists, simply add '{package_name}' to a new
+# line, where {package_name} is the name of the package.
 
 # STANDARD PACKAGES
 packages=(
@@ -89,6 +93,7 @@ packages=(
     #*********** APPLICATIONS SETUP ************#
     'zsh'                           # Alternative Shell to Bash
     'zsh-completions'               # Auto Completions For ZSH
+    #'bash-completions'             # Auto completions for BASH
     'firefox'                       # Firefox Browser
     'code'                          # VSCode Editor 
     'discord'                       # Communication
