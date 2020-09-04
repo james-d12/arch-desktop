@@ -5,7 +5,7 @@
 ##************************** Encrypted Install - Add SWAP ******************************##
 if [ "$encrypted" == "YES" ]; then
     echo "-----------------------------------------"
-    echo "--      Installing Core Packages       --"
+    echo "--      Adding Encrypted Swap File     --"
     echo "-----------------------------------------"
     echo -e "${MSGCOLOUR}Adding encrypted SWAP file....${NC}"
     dd if=/dev/zero of=/swapfile bs=1M count=$encryptedswapsize status=progress

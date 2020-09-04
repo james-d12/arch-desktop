@@ -11,7 +11,7 @@ select o  in "${options[@]}"; do
     esac
 done
 
-#**************************** GET SWAP SIZE (ENCRYPTED) ************************#
+#**************************** GET SWAP SIZE (ENCRYPTED) *************#
 if [ "$encrypted" == "YES" ]; then
     while [ -z $encryptedswapsize ]; do
         echo -n "Enter Encrypted Swap Size(MB): "; 
@@ -63,7 +63,6 @@ done
 PS3='Choose Desktop Environment: '
 options=(
     "gnome" "gnome-minimal" 
-    "kde" "kde-minimal"
     "xfce" "xfce-minimal"
     "custom" "NONE"
 )
@@ -150,4 +149,4 @@ hostname="'"'${hostname}'"'"
 host="'"'${host}'"'"
 " >> arch-config.sh 
 
-bash arch-install-01.sh 
+#bash arch-install-01.sh 

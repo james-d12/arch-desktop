@@ -3,6 +3,14 @@
 . ./arch-config.sh
 . resources/packages
 
+if ! ping -c 1 -q google.com >&/dev/null; then
+    echo -e "${MSGCOLOUR}You are not connected to the internet, attempting connection solutions.....${NC}"
+    echo -e "${MSGCOLOUR}Attempting connection via nmtui....${NC}"
+    nmtui 
+    echo -e "${MSGCOLOUR}Attempting connection via wifi-menu....${NC}"
+    wifi-menu
+fi
+
 echo "-----------------------------------------"
 echo "--     Installing Pacman Packages      --"
 echo "-----------------------------------------"
@@ -52,6 +60,7 @@ echo "-----------------------------------------"
 echo "--     Enabling Systemd Services       --"
 echo "-----------------------------------------"
 echo -e "${MSGCOLOUR}Enabling systemd services....${NC}"
+
 
 if sudo pacman -Qs gdm > /dev/null; then
     echo -e "${MSGCOLOUR}Enabling gdm systemd service....${NC}"; 
