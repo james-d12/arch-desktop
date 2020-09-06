@@ -2,13 +2,6 @@
 
 . ./arch-config.sh
 
-if sudo pacman -Qs firejail > /dev/null; then
-    echo "-----------------------------------------"
-    echo "--       Setting up Firejail           --"
-    echo "-----------------------------------------"
-    sudo firecfg 
-fi 
-
 if sudo pacman -Qs ufw > /dev/null; then
     echo "-----------------------------------------"
     echo "--       Setting up Firewall           --"
