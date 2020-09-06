@@ -149,4 +149,4 @@ hostname="'"'${hostname}'"'"
 host="'"'${host}'"'"
 " >> arch-config.sh 
 
-#bash arch-install-01.sh 
+bash arch-install-01.sh 
