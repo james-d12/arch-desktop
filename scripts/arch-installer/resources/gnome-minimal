@@ -2,8 +2,6 @@
 
 depackages=(
     'gdm'
-    'baobab'
-    'eog'
     'evince'
     'file-roller'
     'gnome-calculator'
@@ -20,7 +18,6 @@ depackages=(
     'gnome-system-monitor'
     'gnome-terminal'
     'gnome-themes-extra'
-    'gnome-user-docs'
     'grilo-plugins'
     'mutter'
     'nautilus'
@@ -29,7 +26,6 @@ depackages=(
     'tracker'
     'tracker-miners'
     'xdg-user-dirs-gtk'
-    'yelp'
     'gnome-tweaks'   
     'chrome-gnome-shell'
 )

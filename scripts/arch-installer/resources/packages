@@ -51,8 +51,7 @@ packages=(
     'unzip'                         # Unpack .zip files
     'p7zip'                         # Unpack .7z Files
     'unrar'                         # Unpack .rar Files
-    'unarchiver'                    # Overall CLI Unpacker 
-
+    
     #*********** PROGRAMMING LANGUAGE / DEVELOPMENT TOOLS SETUP ************#
     'make'                          # Linux Build Tool
     'cmake'                         # Cross Platform Build Tool
@@ -96,8 +95,8 @@ packages=(
     #'bash-completions'             # Auto completions for BASH
     'firefox'                       # Firefox Browser
     #'chromium'                     # Chromium Web Browser
-    'code'                          # VSCode Editor 
     'discord'                       # Communication
+    #'code'                          # VSCode Editor 
     #'plank'                         # A Docker
     #'flameshot'                     # Screenshot software
     #'neovim'                        # Neo Vim - More plugin Support
@@ -117,7 +116,6 @@ packagesaur=(
     'zeal-git'                             # Offline Documentation Viewer
     'timeshift'                            # Backup Tool
     'bitwarden-bin'                        # Password Manager
-    #'gconf'                               # Utility
     #'breeze-obsidian-cursor-theme'        # Obsidian Cursor Theme
     #'gnome-shell-pomodoro'                # Pomodoro Timer for Gnome
     #'gnome-shell-extension-pop-shell-git' # Tiling Windows for Gnome
@@ -127,7 +125,7 @@ packagesaur=(
 packagespip=(   
     #'PyQt5'                         # Python wrapper of QT UI Library
     #'selenium'                      # Python Library For Web Engine Automation
-    #'numpy'                         # Python Math Library
+    #'numpy'                         # Pythson Math Library
     #'matplotlib'                    # Python Graph Plotting Library
     #'gym'                           # Comparing reinforcement learning algorithms.
     #'opencv-python'                 # Library for Real Time Applications
@@ -139,9 +137,7 @@ extensionscode=(
     #'ms-python.python'                          # Python Language 
     #'ms-vscode.cpptools'                        # C/C++ Language
     #'ms-dotnettools.csharp'                     # C# Language
-    #'be5invis.vscode-icontheme-nomo-dark'       # Nomo Dark Icons
-    #'rust-lang.rust'                            # Rust Language
     #'twxs.cmake'                                # CMake Support
     #'alefragnani.project-manager'               # Project Manager
-    #'setpag.visual-assist-dark'                 # Visual Assist Dark Theme
-)
+    #'miqh.core-theme'                           # Core Themes
+ )
