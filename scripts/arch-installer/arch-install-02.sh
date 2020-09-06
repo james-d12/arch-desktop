@@ -59,7 +59,6 @@ done
 echo "-----------------------------------------"
 echo "--  Installing Bootloader and Network  --"
 echo "-----------------------------------------"
-pacman -S --noconfirm --needed networkmanager wireless_tools wpa_supplicant netctl dialog iwd dhclient
 systemctl enable --now NetworkManager
 
 # BIOS

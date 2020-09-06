@@ -70,7 +70,7 @@ echo "-----------------------------------------"
 echo "--      Installing Core Packages       --"
 echo "-----------------------------------------"
 echo -e "${MSGCOLOUR}Preparing to install core packages...${NC}"
-pacstrap /mnt base base-devel $kernel linux-firmware nano
+pacstrap /mnt base base-devel $kernel linux-firmware nano networkmanager wireless_tools wpa_supplicant netctl dialog iwd dhclient
 echo -e "${MSGCOLOUR}Generating fstab file....${NC}"
 genfstab -U /mnt >> /mnt/etc/fstab
 
